@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: "나눔고딕","NanumGothic","NanumGothicOTF", Apple Gothic, "맑은고딕", 
+							 "Malgun Gothic", dotum,"Arial", verdana, "Trebuchet MS", "Lucida Grande",
+							 "HelveticaNeue", "Tahoma","Helvetica", "hiragino kaku gothic pro", 
+							 sans-serif,"Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol",
+							 "Android Emoji","EmojiSymbols";
+	height:100%;
+	width:100%;
+	color:#0E346B;
+}
+
+input { color:#827773; width: 80%; height: 45px; border: 2px solid #0D336A; border-radius:10px; padding: 0 15px; font-size: large; margin : 4px 0 0 5%; }
+
+.btn-cm { background-color: #7ECBBE; color: #0E346B; border:2px solid #0D336A; border-radius: 10px; }
+.btn-cm:hover { color:#946FA8; }
+
+.btn-cm-default { background-color: white; color: #0E346B; border: 2px solid #0D336A; border-radius: 10px; }

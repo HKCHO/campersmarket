@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>즐거운 캠핑 :: 캠퍼스 마켓</title>
+<script src='js/jquery-1.11.1.js'></script>
+<script src='js/bootstrap.js'></script>
+<link rel='stylesheet' href='css/bootstrap.css'>
+<link rel='stylesheet' href='css/cpsmarket.css'>
+<link rel='stylesheet' href='css/index.css'>
+<style>
+.modal-content {
+	border: none;
+}
+
+.modal-dialog {
+  border: 5px solid #0D336A !important;
+	border-radius: 10px;
+	width: 490px;
+	margin: 10%  auto !important;
+}
+.signin-head {
+	font-size: large;
+	padding-top: 12px;
+	
+} 
+.signin-body {
+	width: 320px;
+	vertical-align: middle;
+}
+#phoneNoReg {	
+	height:33px;
+	width:44px;
+	position:absolute;
+	margin:4px;
+}
+
+
+</style>
+</head>
+<body>
+ <div id='title'>
+ 	CAMPERS MARKET
+ </div>
+ <div id='subtitle'>
+ 		<p style="margin-bottom: 30px;">캠핑을 더 즐겁게 , 더 신나게, 더 행복하게</p>
+ 	</div>
+ <div id='centre-form'>
+ 	<div id="log-form">
+ 	 <div id='member'>
+ 	 	<input id="uid" placeholder="아이디를 입력해주세요.">
+ 	 	<input id="upasswd" type="password" placeholder="비밀번호를 입력하세요.">
+ 	 	<div id='member-bottom'>
+ 	 		<a id="signin" href="#" data-toggle="modal" data-target="#signinModal" onclick="plan();">아이디가 없으세요?</a>
+ 	 	</div>
+ 	 	<button id='login'>마켓 입장</button>
+ 	 	<div id='other-id'>
+ 	 		facebook, 네이버, 다음 로그인 버튼 들어올 예정.
+ 	 	</div>
+ 	 </div>
+ 	 <div id="line"></div>
+ 	 <div id='nonmember'>
+ 	 	<div id='nomemlogin'>
+ 	 		<br>
+ 	 		<p>로그인 하지 않아도</p>
+ 	 		<p>캠퍼스 마켓을</p>
+ 	 		<p>여행할 수 있답니다</p>
+ 	 		<br>
+			<p>마음껏 둘러보세요</p>
+ 	 		<br>
+ 	 		<hr>
+ 	 		<p style="font-size : 29px; color:inherit; margin-top:8px;">나그네 입장</p>
+ 	 	</div>
+ 	 </div>
+ 	</div>
+ </div>
+
+<!-- 회원가입 Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="signin-modal-content" class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><b>캠퍼가 되어보세요</b></h4>
+      </div>
+      <div class="modal-body">
+        <table style="margin:0 auto;">
+        	<tr>
+        		<td class='signin-head'>
+        			<p>이메일</p>
+        		</td>
+        		<td class='signin-body'>
+        			<input class='signin-input' type="email" placeholder="이메일을 입력해주세요">
+        		</td>
+        	</tr>
+        	<tr>
+        		<td class='signin-head'>
+        			<p>비밀번호</p>
+        		</td>
+        		<td class='signin-body'>
+        			<input class='signin-input' type="email" placeholder="비밀번호를 입력해주세요">
+        		</td>
+        	</tr>
+        	<tr>
+        		<td class='signin-head'>
+        			<p>비밀번호 확인</p>
+        		</td>
+        		<td class='signin-body'>
+        			<input class='signin-input' type="email" placeholder="비밀번호를 한번 더 입력해주세요">
+        		</td>
+        	</tr>
+        	<tr>
+        		<td class='signin-head'>
+        			<p>핸드폰</p>
+        		</td>
+        		<td class='signin-body'>
+        			<input class='signin-input' type="email" style="width: 180px;" placeholder="폰 번호를 입력해주세요">
+        			<button id="phoneNoReg" class="btn btn-cm">인증</button>
+        		</td>
+        	</tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cm-default" data-dismiss="modal">취소</button>
+        <button id='signinBtn' type="button" class="btn btn-cm">가입하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+</body>
+<script>
+
+$(function(){
+	
+});	
+
+$('#login').click(function(){
+	console.log("id : " + $('#uid').val() + ", passwd : " + $('#upasswd').val());
+	alert($('#uid').val() + " : " + $('#upasswd').val() + '    - 검사 후 메인페이지로 넘어감');
+});
+
+$('#nomemlogin').click(function(){
+	location.href = 'main';
+});
+
+$('#signinBtn').click(function() {
+	alert("가입하기 버튼");
+});
+
+$('#phoneNoReg').click(function(){
+	alert("인증버튼");
+	console.log("또다른 윈도우 창이 뜨면서 인증번호를 받음");
+});
+
+function plan() {
+	console.log("닉네임, 성별은 가입 후 첫 활동 때 입력 받을 예정입니다.");
+};
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
