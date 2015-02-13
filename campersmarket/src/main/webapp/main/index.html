@@ -1,3 +1,4 @@
+<!-- main index -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,23 @@
 <link rel='stylesheet' href='../css/bootstrap.css'>
 <link rel='stylesheet' href='../css/cpsmarket.css'>
 <style>
+<!-- 회원가입 모달 레이어 -->
+#phoneNoReg {
+height: 46px;
+width: 72px;
+position: absolute;
+margin: 4px;
+}
+
+input.signin-input {
+	width:295px !important;
+}
+
+#phoneNo {
+	width:218px !important;
+}
+<!-- 회원가입 모달 레이어 -->
+
 html {
 	background-color: white;
 }
@@ -189,7 +207,7 @@ html {
 				<div id='nolog'>
 					<ul>
 						<li><a id='login' href="#" onclick="alarm();">로그인</a><span class="partition">|</span></li>
-						<li><a id='signin' href="#">회원가입</a><span class="partition">|</span></li>
+						<li><a id='signin' href="#" data-toggle="modal" data-target="#signinModal">회원가입</a><span class="partition">|</span></li>
 						<li><a href="#" onclick="alarm();">찜한물건</a><span class="partition">|</span></li>
 						<li><a href="#" onclick="alarm();">내 텐트</a></li>
 					</ul>
@@ -230,32 +248,38 @@ html {
 	</nav>
 	<iframe id='cm-content'>
 	</iframe>
+	<div id='signin-modal'></div>
 </body>
 <script>
-	$('.menus').click(function(){
-		console.log($(this).data("cmenu"));
-		console.log($(this).children().next().html());
-		alert($(this).children().next().html());
-	});
-	
-	function search() {
-		alert("It works!");
-	};
-	
-	function alarm() {
-		alert("로그인 화면이 뜰 예정");		
+$(function() {
+	$('#signin-modal').load('../forms/signin.html');
+});
+
+
+$('.menus').click(function(){
+	console.log($(this).data("cmenu"));
+	console.log($(this).children().next().html());
+	alert($(this).children().next().html());
+});
+
+function search() {
+	alert("It works!");
+};
+
+function alarm() {
+	alert("로그인 화면이 뜰 예정");		
+}
+
+/* 화면 코딩용 버튼입니다. */
+$('#cm-logo').click(function(){
+	if($('#nolog').css('display') == 'none'){
+		$('#logged').css('display','none');
+		$('#nolog').css('display','');
+	} else if($('#logged').css('display') == 'none'){
+		$('#logged').css('display','inline');
+		$('#nolog').css('display','none');
 	}
-	
-	/* 화면 코딩용 버튼입니다. */
-	$('#cm-logo').click(function(){
-		if($('#nolog').css('display') == 'none'){
-			$('#logged').css('display','none');
-			$('#nolog').css('display','');
-		} else if($('#logged').css('display') == 'none'){
-			$('#logged').css('display','inline');
-			$('#nolog').css('display','none');
-		}
-	});
+});
 	
 </script>
 </html>

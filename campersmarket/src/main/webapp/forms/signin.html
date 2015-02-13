@@ -1,17 +1,89 @@
+<!-- 회원가입 Modal -->
 <style>
+.modal-content {
+	border: none;
+}
+.modal-dialog {
+  border: 5px solid #0D336A !important;
+	border-radius: 10px;
+	width: 490px;
+	margin: 10%  auto !important;
+}
+.signin-head {
+	font-size: large;
+	padding-top: 12px;
+	
+} 
+.signin-body {
+	width: 320px;
+	vertical-align: middle;
+}
+#phoneNoReg {	
+	height:45px;
+	width:72px;
+	position:absolute;
+	margin:4px;
+}
 </style>
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div id="signin-modal-content" class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel"><b>캠퍼가 되어보세요</b></h4>
       </div>
       <div class="modal-body">
-        ...
+        <table style="margin:0 auto;">
+        	<tr>
+        		<td class='signin-head'>
+        			<p>이메일</p>
+        		</td>
+        		<td class='signin-body'>
+        			<input class='signin-input' type="email" placeholder="이메일을 입력해주세요">
+        		</td>
+        	</tr>
+        	<tr>
+        		<td class='signin-head'>
+        			<p>비밀번호</p>
+        		</td>
+        		<td class='signin-body'>
+        			<input class='signin-input' type="email" placeholder="비밀번호를 입력해주세요">
+        		</td>
+        	</tr>
+        	<tr>
+        		<td class='signin-head'>
+        			<p>비밀번호 확인</p>
+        		</td>
+        		<td class='signin-body'>
+        			<input class='signin-input' type="email" placeholder="비밀번호를 한번 더 입력해주세요">
+        		</td>
+        	</tr>
+        	<tr>
+        		<td class='signin-head'>
+        			<p>핸드폰</p>
+        		</td>
+        		<td class='signin-body'>
+        			<input id='phoneNo' class='signin-input' type="email" style="width: 180px;" placeholder="폰 번호를 입력해주세요">
+        			<button id="phoneNoReg" class="btn btn-cm">인증</button>
+        		</td>
+        	</tr>
+        </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-cm-default" data-dismiss="modal">취소</button>
+        <button id='signinBtn' type="button" class="btn btn-cm">가입하기</button>
       </div>
     </div>
   </div>
+</div>
+
+<script>
+$('#signinBtn').click(function() {
+	alert("가입하기 버튼");
+});
+
+$('#phoneNoReg').click(function(){
+	alert("인증버튼");
+	console.log("또다른 윈도우 창이 뜨면서 인증번호를 받음");
+});
+</script>
