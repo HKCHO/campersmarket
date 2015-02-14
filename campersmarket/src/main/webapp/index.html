@@ -139,6 +139,85 @@ $('#phoneNoReg').click(function(){
 	console.log("또다른 윈도우 창이 뜨면서 인증번호를 받음");
 });
 
+
+
+/*  -------------------------------회원가입 유효성 검사 시작-----------------------------------  */
+
+
+//space 가 있으면 true, 없으면 false 
+function checkSpace(str)
+{
+     if(str.search(/\s/) != -1){
+      	return true;
+     } else {
+       return false;
+     }
+}
+
+function checkEmail(){
+	if(checkSpace($('#signinEmail').val())){
+			alert("이메일 공백있음");
+			return false;
+	}else if(!/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/.test($('#signinEmail').val())){
+		//유효성실패	
+		alert("이메일 유효성실패");
+		return false;
+		
+    }else{
+    	//유효성통과 
+    	alert("이메일 유효성성공");
+    	console.log("dd", $('#signinEmail').val());
+    	return true;
+    	}
+};
+
+function checkPwd1(){
+   	if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd1').val())){
+		//유효성실패 
+		alert("비밀번호1 유효성 실패");
+  		return false;
+    }else{
+    	//유효성통과 
+    	alert("비밀번호1 유효성성공");
+    	console.log("dd", $('#signinPwd1').val());
+    	//return true;
+    }
+};
+
+function checkPwd2(){
+	if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd2').val())){
+		//유효성실패	
+		alert("비밀번호2 유효성실패");
+		return false;
+    }else if($('#signinPwd1').val() != $('#signinPwd2').val()){
+   		 //유효성실패
+   		 alert("비밀번호2 비밀번호1,2 불일치");
+  		return false;
+    }else{
+     	//유효성통과 
+     	alert("비밀번호2 유효성성공");
+    	return true;
+    }
+};
+
+$('#signinEmail').focusout(function(){
+	checkEmail();
+	//리턴값을 말풍선에 글넣기 
+});
+
+$('#signinPwd1').focusout(function(){
+	checkPwd1();
+	//리턴값을 말풍선에 글넣기 
+});
+
+$('#signinPwd2').focusout(function(){
+	checkPwd2();
+	//리턴값을 말풍선에 글넣기 
+});
+
+
+/*  -------------------------------회원가입 유효성 검사 끝-----------------------------------  */
+
 </script>
 </html>
 
