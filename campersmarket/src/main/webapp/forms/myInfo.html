@@ -1,0 +1,59 @@
+<style>
+#nickname , #pass, #checkpass, #phone{
+width: 300px;
+}
+
+
+</style>
+
+<div class="modal fade" id='myInfoModal'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">내정보</h4>
+      </div>
+      <div class="modal-body">
+	<table>
+      		<tr>
+      			<td>
+      				<p>닉네임 </p>
+      			</td>
+      			<td>
+      				<input id="nickname" placeholder="닉네임을 입력해주세요" />
+      			</td>
+      		</tr>
+      		<tr>
+      			<td>
+      				<p>비밀번호 </p>
+      			</td>
+      			<td>
+      				<input id="pass" type="password"/>
+      			</td>
+      		</tr>
+      		<tr>
+      			<td>
+      				<p>비밀번호 확인 </p>
+      			</td>
+      			<td>
+      				<input id="checkpass" type="password"/>
+      			</td>
+      		</tr>
+      		<tr>
+      			<td>
+      				<p>전화번호 </p>
+      			</td>
+      			<td>
+      				<input id="phone"  />
+      			</td>
+      		</tr>
+      		
+      	
+      	</table>      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

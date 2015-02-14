@@ -217,7 +217,7 @@ html {
 				</div>
 				<div id='logged'>
 					<ul>
-						<li><a id='myInfo'>내 정보</a><span class="partition">|</span></li>
+						<li><a id='myInfo' href="#" data-toggle="modal" data-target="#myInfoModal">내 정보</a><span class="partition">|</span></li>
 						<li><a id='fList'>내 물건</a><span class="partition">|</span></li>
 						<li><a id='wish'>찜한물건</a><span class="partition">|</span></li>
 						<li><a id='myTent'>내 텐트</a></li>
@@ -252,11 +252,16 @@ html {
 	<iframe id='cm-content'>
 	</iframe>
 	<div id='signin-modal'></div>
+	<div id='my-Info'></div>
 </body>
 <script>
 $(function() {
 	$('#signin-modal').load('../forms/signin.html');
 });
+
+$(function(){
+	$('#my-Info').load('../forms/myInfo.html');
+})
 
 
 $('.menus').click(function(){
@@ -283,6 +288,11 @@ $('#cm-logo').click(function(){
 		$('#nolog').css('display','none');
 	}
 });
+
+
+$('#myInfo').click(function(){
+	
+})
 	
 </script>
 </html>
