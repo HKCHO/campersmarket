@@ -11,7 +11,7 @@ gradle 프로젝트로 진행 중인 웹앱입니다.<br>
 </ul>
 <br>
 <h3>공동 작업자</h3>
-<p> - 조현권 : (프로듀서) </p>
-<p> - 윤종익 : (프로듀서) javascript , jquery , ajax , java , css , nodejs 등</p>
-<p> - 지용근 : (프로듀서) javascript , jquery , ajax , java , css , nodejs 등</p>
+<p> - 조현권 : (소환사) </p>
+<p> - 윤종익 : (BRONZE IV 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
+<p> - 지용근 : (UNRANKED 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
 
