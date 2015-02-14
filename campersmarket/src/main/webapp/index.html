@@ -110,6 +110,7 @@
   </div>
 <div id='signin-modal'>
 </div>
+
  
 </body>
 <script>
@@ -174,6 +175,7 @@ function checkPwd1(){
 		return false;
 	}else if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd1').val())){
 		//유효성실패 
+		console.log("aa", $('#signinPwd1').val());
 		alert("비밀번호1 유효성 실패");
   		return false;
     }else{
