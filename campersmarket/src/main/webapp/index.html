@@ -169,20 +169,25 @@ function checkEmail(){
 };
 
 function checkPwd1(){
-   	if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd1').val())){
+	if(checkSpace($('#signinPwd1').val())){
+		alert("비번 공백있음");
+		return false;
+	}else if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd1').val())){
 		//유효성실패 
 		alert("비밀번호1 유효성 실패");
   		return false;
     }else{
     	//유효성통과 
     	alert("비밀번호1 유효성성공");
-    	console.log("dd", $('#signinPwd1').val());
     	//return true;
     }
 };
 
 function checkPwd2(){
-	if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd2').val())){
+	if(checkSpace($('#signinPwd2').val())){
+		alert("비번 공백있음");
+		return false;
+	}else if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd2').val())){
 		//유효성실패	
 		alert("비밀번호2 유효성실패");
 		return false;
