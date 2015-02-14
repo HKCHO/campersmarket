@@ -10,28 +10,9 @@
 <link rel='stylesheet' href='css/cpsmarket.css'>
 <link rel='stylesheet' href='css/index.css'>
 <style>
-.modal-content {
-	border: none;
-}
-
-.modal-dialog {
-  border: 5px solid #0D336A !important;
-	border-radius: 10px;
-	width: 490px;
-	margin: 10%  auto !important;
-}
-.signin-head {
-	font-size: large;
-	padding-top: 12px;
-	
-} 
-.signin-body {
-	width: 320px;
-	vertical-align: middle;
-}
 #phoneNoReg {	
-	height:33px;
-	width:44px;
+	height:33px !important;
+	width:44px !important;
 	position:absolute;
 	margin:4px;
 }
@@ -75,6 +56,7 @@
  	 </div>
  	</div>
  </div>
+<<<<<<< HEAD
 
 <!-- 회원가입 Modal -->
 <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -127,13 +109,16 @@
       </div>
     </div>
   </div>
+=======
+<div id='signin-modal'>
+>>>>>>> refs/remotes/origin/master
 </div>
  
 </body>
 <script>
 
 $(function(){
-	
+	$('#signin-modal').load('forms/signin.html');
 });	
 
 $('#login').click(function(){
