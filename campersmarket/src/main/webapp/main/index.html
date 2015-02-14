@@ -56,6 +56,7 @@ html {
 	width: 33%;
 	float: left;
 	padding-top:6px;
+	cursor:default;
 }
 
 #right-m {
@@ -87,6 +88,7 @@ html {
 	margin-top: 13px;
 	margin-left: 30px;
 	position: absolute;
+	cursor:default;
 }
 
 #cm-m-nav {
@@ -115,9 +117,9 @@ html {
 	position:relative;
 	margin-top:5px;
 	margin-left: 15%;
-	border: 1px ridge red; 
+	border: 1px solid #f3f3f3; 
 	width: 70%;
-	height: 90vh;
+	height: 80vh;
 }
 
 #searchbar {
@@ -196,6 +198,7 @@ html {
 
 .partition {
 	margin: 0 20px;
+	cursor: default;
 }
 </style>
 </head>
@@ -206,7 +209,7 @@ html {
 			<div id='right-m'>
 				<div id='nolog'>
 					<ul>
-						<li><a id='login' href="#" onclick="alarm();">로그인</a><span class="partition">|</span></li>
+						<li><a id='loadlogin' href="#" onclick="alarm();">로그인</a><span class="partition">|</span></li>
 						<li><a id='signin' href="#" data-toggle="modal" data-target="#signinModal">회원가입</a><span class="partition">|</span></li>
 						<li><a href="#" onclick="alarm();">찜한물건</a><span class="partition">|</span></li>
 						<li><a href="#" onclick="alarm();">내 텐트</a></li>
@@ -267,7 +270,7 @@ function search() {
 };
 
 function alarm() {
-	alert("로그인 화면이 뜰 예정");		
+	$('#cm-content').attr('src','content/login');
 }
 
 /* 화면 코딩용 버튼입니다. */

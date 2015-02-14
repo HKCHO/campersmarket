@@ -10,28 +10,9 @@
 <link rel='stylesheet' href='css/cpsmarket.css'>
 <link rel='stylesheet' href='css/index.css'>
 <style>
-.modal-content {
-	border: none;
-}
-
-.modal-dialog {
-  border: 5px solid #0D336A !important;
-	border-radius: 10px;
-	width: 490px;
-	margin: 10%  auto !important;
-}
-.signin-head {
-	font-size: large;
-	padding-top: 12px;
-	
-} 
-.signin-body {
-	width: 320px;
-	vertical-align: middle;
-}
 #phoneNoReg {	
-	height:33px;
-	width:44px;
+	height:33px !important;
+	width:44px !important;
 	position:absolute;
 	margin:4px;
 }
@@ -75,65 +56,14 @@
  	 </div>
  	</div>
  </div>
-
-<!-- 회원가입 Modal -->
-<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div id="signin-modal-content" class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><b>캠퍼가 되어보세요</b></h4>
-      </div>
-      <div class="modal-body">
-        <table style="margin:0 auto;">
-        	<tr>
-        		<td class='signin-head'>
-        			<p>이메일</p>
-        		</td>
-        		<td class='signin-body'>
-        			<input class='signin-input' type="email" placeholder="이메일을 입력해주세요">
-        		</td>
-        	</tr>
-        	<tr>
-        		<td class='signin-head'>
-        			<p>비밀번호</p>
-        		</td>
-        		<td class='signin-body'>
-        			<input class='signin-input' type="email" placeholder="비밀번호를 입력해주세요">
-        		</td>
-        	</tr>
-        	<tr>
-        		<td class='signin-head'>
-        			<p>비밀번호 확인</p>
-        		</td>
-        		<td class='signin-body'>
-        			<input class='signin-input' type="email" placeholder="비밀번호를 한번 더 입력해주세요">
-        		</td>
-        	</tr>
-        	<tr>
-        		<td class='signin-head'>
-        			<p>핸드폰</p>
-        		</td>
-        		<td class='signin-body'>
-        			<input class='signin-input' type="email" style="width: 180px;" placeholder="폰 번호를 입력해주세요">
-        			<button id="phoneNoReg" class="btn btn-cm">인증</button>
-        		</td>
-        	</tr>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-cm-default" data-dismiss="modal">취소</button>
-        <button id='signinBtn' type="button" class="btn btn-cm">가입하기</button>
-      </div>
-    </div>
-  </div>
+<div id='signin-modal'>
 </div>
  
 </body>
 <script>
 
 $(function(){
-	
+	$('#signin-modal').load('forms/signin.html');
 });	
 
 $('#login').click(function(){
