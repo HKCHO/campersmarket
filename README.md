@@ -11,6 +11,6 @@ gradle 프로젝트로 진행 중인 웹앱입니다.<br>
 </ul>
 <br>
 <h3>공동 작업자</h3>
-<p>조현권 : (프로듀서) </p>
-<p>윤종익 : (초급 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
-<p>지용근 : (초급 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
+<p> - 조현권 : (프로듀서) </p>
+<p> - 윤종익 : (초급 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
+<p> - 지용근 : (초급 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
