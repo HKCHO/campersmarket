@@ -1,236 +1,298 @@
-<!--  campers market index -->
+<!-- main index -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>즐거운 캠핑 :: 캠퍼스 마켓</title>
-<script src='js/jquery-1.11.1.js'></script>
-<script src='js/bootstrap.js'></script>
-<link rel='stylesheet' href='css/bootstrap.css'>
-<link rel='stylesheet' href='css/cpsmarket.css'>
-<link rel='stylesheet' href='css/index.css'>
+<title>캠퍼스 마켓 :: 캠퍼스 마켓과 함께 즐거운 캠핑 되세요</title>
+<script src='../js/jquery-1.11.1.js'></script>
+<script src='../js/bootstrap.js'></script>
+<link rel='stylesheet' href='../css/bootstrap.css'>
+<link rel='stylesheet' href='../css/cpsmarket.css'>
 <style>
-#phoneNoReg {	
-	height:33px !important;
-	width:44px !important;
-	position:absolute;
-	margin:4px;
+<!-- 회원가입 모달 레이어 -->
+#phoneNoReg {
+height: 46px;
+width: 72px;
+position: absolute;
+margin: 4px;
 }
 
+input.signin-input {
+	width:295px !important;
+}
 
+#phoneNo {
+	width:218px !important;
+}
+<!-- 회원가입 모달 레이어 -->
+
+html {
+	background-color: white;
+}
+
+#cm-main {
+	height: 100%;
+}
+
+#myMenu {
+	background-color:white;
+	border-bottom: 1px solid #f3f3f3;
+	height: 30px;
+}
+
+#mm-container {
+	width: 70%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#left-m, #right-m {
+	font-size:11px;
+	padding:3px;
+	height:100%;
+}
+
+#left-m {
+	width: 33%;
+	float: left;
+	padding-top:6px;
+	cursor:default;
+}
+
+#right-m {
+	width: 50%;
+	float:right;
+}
+
+#cm-header {
+	height:80px;
+}
+
+#header-container {
+	width: 70%;
+	height: 100%;
+	margin:0 auto;
+}
+
+#forBeginner {
+	border-top: 1px solid #B5CB95;
+	height:30px;
+}
+
+#cm-logo {
+	color:#E0367C;
+	display:inline;
+	font-size: xx-large;
+	font-weight: bold;
+	line-height: 0.828571;
+	margin-top: 13px;
+	margin-left: 30px;
+	position: absolute;
+	cursor:default;
+}
+
+#cm-m-nav {
+	background-color:#81C9BD;
+}
+
+#cm-m-menu {
+	width:70%;
+	background-color: #B5CC95;
+	margin: 0 auto;
+}
+
+#cm-m-menu td{
+	width:20%;
+	padding:10px;
+	height:50px;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	text-align: center;
+	font-size: large;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+#cm-content {
+	position:relative;
+	margin-top:5px;
+	margin-left: 15%;
+	border: 1px solid #f3f3f3; 
+	width: 70%;
+	height: 80vh;
+}
+
+#searchbar {
+	position: absolute;
+	width: 30%;
+	margin-left: 19%;
+	margin-top: 13px;
+}
+
+#searchSite {
+	width: 80%;
+	font-size: medium;
+	border-radius: 10px 0 0 10px;	
+	border-right: none;
+	display:inline;
+	margin: 4px 0 0 0 !important;
+	background: url(../imagesource/m1/glyphicons-28-search.png) no-repeat scroll 7px 7px;
+	padding-left: 40px;
+}
+
+#searchBtn {
+	border: 2px solid #0D336A;
+	border-radius: 0 10px 10px 0;
+	background-color: #7ECBBE;
+	width: 60px;
+	text-align: center;
+	font-weight: bold;
+	padding:12.5px;
+	margin-left: -5px;
+	cursor:pointer;
+	
+}
+
+#nolog , #logged {
+	padding-top:3px;
+	text-align:right;
+	width:87%;
+	height:100%;
+	float:right;
+}
+
+#nolog > ul, #logged > ul {
+	float: right;
+	position: relative;
+	right: 20px;
+}
+
+#nolog > ul > li , #logged > ul > li {
+	list-style-type: none;
+	float:left;
+}
+
+#nolog > ul > li > a , #logged > ul > li > a {
+	color:#0E346B;
+	cursor:pointer;
+	text-decoration: none;
+}
+
+#logged {
+	display:none;
+	width:87%;
+	height:100%;
+	float:right;
+}
+
+#userNick {
+	font-weight: bold;
+}
+
+.menu-icon {
+	width: 20px;
+	height: 20px;
+	margin-bottom: 4px;
+	margin-right: 7px;
+}
+
+.partition {
+	margin: 0 20px;
+	cursor: default;
+}
 </style>
 </head>
-<body>
- <div id='title'>
- 	CAMPERS MARKET
- </div>
- <div id='subtitle'>
- 		<p style="margin-bottom: 30px;">캠핑을 더 즐겁게 , 더 신나게, 더 행복하게</p>
- 	</div>
- <div id='centre-form'>
- 	<div id="log-form">
- 	 <div id='member'>
- 	 	<input id="uid" placeholder="아이디를 입력해주세요.">
- 	 	<input id="upasswd" type="password" placeholder="비밀번호를 입력하세요.">
- 	 	<div id='member-bottom'>
- 	 		<a id="signin" href="#" data-toggle="modal" data-target="#signinModal">아이디가 없으세요?</a>
- 	 	</div>
- 	 	<button id='login'>마켓 입장</button>
- 	 	<div id='other-id'>
- 	 		facebook, 네이버, 다음 로그인 버튼 들어올 예정.
- 	 	</div>
- 	 </div>
- 	 <div id="line"></div>
- 	 <div id='nonmember'>
- 	 	<div id='nomemlogin'>
- 	 		<br>
- 	 		<p>로그인 하지 않아도</p>
- 	 		<p>캠퍼스 마켓을</p>
- 	 		<p>여행할 수 있답니다</p>
- 	 		<br>
-			<p>마음껏 둘러보세요</p>
- 	 		<br>
- 	 		<hr>
- 	 		<p style="font-size : 29px; color:inherit; margin-top:8px;">나그네 입장</p>
- 	 	</div>
- 	 </div>
- 	</div>
- </div>
-
-<!-- 회원가입 Modal -->
-<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div id="signin-modal-content" class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><b>캠퍼가 되어보세요</b></h4>
-      </div>
-      <div class="modal-body">
-        <table style="margin:0 auto;">
-        	<tr>
-        		<td class='signin-head'>
-        			<p>이메일</p>
-        		</td>
-        		<td class='signin-body'>
-        			<input id = 'signinEmail' class='signin-input' type='email' placeholder="이메일을 입력해주세요">
-        		</td>
-        	</tr>
-        	<tr>
-        		<td class='signin-head'>
-        			<p>비밀번호</p>
-        		</td>
-        		<td class='signin-body'>
-        			<input id = 'signinPwd1' class='signin-input' type='password' placeholder="비밀번호를 입력해주세요">
-        		</td>
-        	</tr>
-        	<tr>
-        		<td class='signin-head'>
-        			<p>비밀번호 확인</p>
-        		</td>
-        		<td class='signin-body'>
-        			<input id = 'signinPwd2' class='signin-input' type="password" placeholder="비밀번호를 한번 더 입력해주세요">
-        		</td>
-        	</tr>
-        	<tr>
-        		<td class='signin-head'>
-        			<p>핸드폰</p>
-        		</td>
-        		<td class='signin-body'>
-        			<input id = 'signinPhone' class='signin-input' type="email" style="width: 180px;" placeholder="폰 번호를 입력해주세요">
-        			<button id="phoneNoReg" class="btn btn-cm">인증</button>
-        		</td>
-        	</tr>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-cm-default" data-dismiss="modal">취소</button>
-        <button id="signinBtn" type="button" class="btn btn-cm">가입하기</button>
-      </div>
-    </div>
-  </div>
-  </div>
-<div id='signin-modal'>
-</div>
-
- 
+<body id='cm-main'>
+	<div id='myMenu'>
+		<div id='mm-container'>
+			<div id='left-m'><span id='userNick'>나그네님!</span> <span>로그인 후 더 많은 컨텐츠를 즐겨보세요.</span></div>
+			<div id='right-m'>
+				<div id='nolog'>
+					<ul>
+						<li><a id='loadlogin' href="#" onclick="alarm();">로그인</a><span class="partition">|</span></li>
+						<li><a id='signin' href="#" data-toggle="modal" data-target="#signinModal">회원가입</a><span class="partition">|</span></li>
+						<li><a href="#" onclick="alarm();">찜한물건</a><span class="partition">|</span></li>
+						<li><a href="#" onclick="alarm();">내 텐트</a></li>
+					</ul>
+				</div>
+				<div id='logged'>
+					<ul>
+						<li><a id='myInfo' href="#" data-toggle="modal" data-target="#myInfoModal">내 정보</a><span class="partition">|</span></li>
+						<li><a id='fList'>내 물건</a><span class="partition">|</span></li>
+						<li><a id='wish'>찜한물건</a><span class="partition">|</span></li>
+						<li><a id='myTent'>내 텐트</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<header id="cm-header">
+		<div id='header-container'>
+			<div id='cm-logo'><span>CAMPERS</span><br><span>MARKET</span></div>
+			<div id='searchbar'>
+				<input id='searchSite' type="text" placeholder="캠핑장이름을 검색하세요">
+				<span id='searchBtn' onclick="search();">찾기</span>
+			</div>
+			<div id='cm-h-content'></div>
+		</div>
+	</header>
+	<div id='forBeginner'>
+	</div>
+	<nav id="cm-m-nav">
+		<table id="cm-m-menu">
+			<tr>
+				<td class='menus' data-cmenu="together"><img class='menu-icon' src="../imagesource/m1/glyphicons-44-group.png"><span>같이가요</span></td>
+				<td class='menus' data-cmenu="trade"><img class='menu-icon' src="../imagesource/m1/glyphicons-82-refresh.png"><span>바꿔요</span></td>
+				<td class='menus' data-cmenu="give"><img class='menu-icon' src="../imagesource/m1/glyphicons-70-gift.png"><span>드려요</span></td>
+				<td class='menus' data-cmenu="help"><img class='menu-icon' src="../imagesource/m1/glyphicons-523-user-flag.png"><span>도와줘요</span></td>
+				<td class='menus' data-cmenu="bulletin"><img class='menu-icon' src="../imagesource/m1/glyphicons-246-chat.png"><span>시끌시끌</span></td>
+			</tr>
+		</table>
+	</nav>
+	<iframe id='cm-content'>
+	</iframe>
+	<div id='signin-modal'></div>
+	<div id='my-Info'></div>
 </body>
 <script>
+$(function() {
+	$('#signin-modal').load('../forms/signin.html');
+});
 
 $(function(){
-	$('#signin-modal').load('forms/signin.html');
-});	
+	$('#my-Info').load('../forms/myInfo.html');
+})
 
-$('#login').click(function(){
-	console.log("id : " + $('#uid').val() + ", passwd : " + $('#upasswd').val());
-	alert($('#uid').val() + " : " + $('#upasswd').val() + '    - 검사 후 메인페이지로 넘어감');
+
+$('.menus').click(function(){
+	console.log($(this).data("cmenu"));
+	console.log($(this).children().next().html());
+	alert($(this).children().next().html());
 });
 
-$('#nomemlogin').click(function(){
-	location.href = 'main';
-});
+function search() {
+	alert("It works!");
+};
 
-$('#signinBtn').click(function() {
-	alert("가입하기 버튼");
-});
-
-$('#phoneNoReg').click(function(){
-	alert("인증버튼");
-	console.log("또다른 윈도우 창이 뜨면서 인증번호를 받음");
-});
-
-
-
-/*  -------------------------------회원가입 유효성 검사 시작-----------------------------------  */
-
-
-//space 가 있으면 true, 없으면 false 
-function checkSpace(str)
-{
-     if(str.search(/\s/) != -1){
-      	return true;
-     } else {
-       return false;
-     }
+function alarm() {
+	$('#cm-content').attr('src','content/login');
 }
 
-function checkEmail(){ 
-	if(checkSpace($('#signinEmail').val())){
-			alert("이메일 공백있음");
-			return false;
-	}else if(!/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/.test($('#signinEmail').val())){
-		//유효성실패	
-		alert("이메일 유효성실패");
-		return false;
-		
-    }else{
-    	//유효성통과 
-    	alert("이메일 유효성성공");
-    	console.log("dd", $('#signinEmail').val());
-    	return true;
-    	}
-};
-
-function checkPwd1(){
-	if(checkSpace($('#signinPwd1').val())){
-		alert("비번 공백있음");
-		return false;
-	}else if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd1').val())){
-		//유효성실패 
-		console.log("aa", $('#signinPwd1').val());
-		alert("비밀번호1 유효성 실패");
-  		return false;
-    }else{
-    	//유효성통과 
-    	alert("비밀번호1 유효성성공");
-    	//return true;
-    }
-};
-
-function checkPwd2(){
-	if(checkSpace($('#signinPwd2').val())){
-		alert("비번 공백있음");
-		return false;
-	}else if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd2').val())){
-		//유효성실패	
-		alert("비밀번호2 유효성실패");
-		return false;
-    }else if($('#signinPwd1').val() != $('#signinPwd2').val()){
-   		 //유효성실패
-   		 alert("비밀번호2 비밀번호1,2 불일치");
-  		return false;
-    }else{
-     	//유효성통과 
-     	alert("비밀번호2 유효성성공");
-    	return true;
-    }
-};
-
-$('#signinEmail').focusout(function(){
-	checkEmail();
-	//리턴값을 말풍선에 글넣기 
-});
-
-$('#signinPwd1').focusout(function(){
-	checkPwd1();
-	//리턴값을 말풍선에 글넣기 
-});
-
-$('#signinPwd2').focusout(function(){
-	checkPwd2();
-	//리턴값을 말풍선에 글넣기 
+/* 화면 코딩용 버튼입니다. */
+$('#cm-logo').click(function(){
+	if($('#nolog').css('display') == 'none'){
+		$('#logged').css('display','none');
+		$('#nolog').css('display','');
+	} else if($('#logged').css('display') == 'none'){
+		$('#logged').css('display','inline');
+		$('#nolog').css('display','none');
+	}
 });
 
 
-/*  -------------------------------회원가입 유효성 검사 끝-----------------------------------  */
-
+$('#myInfo').click(function(){
+	
+})
+	
 </script>
 </html>
-
-
-
-
-
-
-
-
-

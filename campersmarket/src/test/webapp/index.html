@@ -1,3 +1,4 @@
+<!--  campers market index -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,147 +7,17 @@
 <script src='js/jquery-1.11.1.js'></script>
 <script src='js/bootstrap.js'></script>
 <link rel='stylesheet' href='css/bootstrap.css'>
+<link rel='stylesheet' href='css/cpsmarket.css'>
 <link rel='stylesheet' href='css/index.css'>
 <style>
-
-.btn-cm:hover {
-	color:#946FA8;
-}
-
-.btn-cm {
-	background-color: #7ECBBE;
-	color: #0E346B;
-	border: 2px solid #0D336A;
-  border-radius: 10px;
-}
-
-.btn-cm-default {
-	background-color: white;
-	color: #0E346B;
-	border: 2px solid #0D336A;
-  border-radius: 10px;
-}
-
-body {
-	font-family: "나눔고딕","NanumGothic","NanumGothicOTF", Apple Gothic, "맑은고딕", 
-							 "Malgun Gothic", dotum,"Arial", verdana, "Trebuchet MS", "Lucida Grande",
-							 "HelveticaNeue", "Tahoma","Helvetica", "hiragino kaku gothic pro", 
-							 sans-serif,"Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol",
-							 "Android Emoji","EmojiSymbols";
-	height:100%;
-	width:100%;
-	color:#0E346B;
-}
-
-
-#centre-form { 
-	width: 600px;
-	height:300px;
-	margin: 0 auto;
-	top: 36%;
-	border:4px solid #0D336A;
-	border-radius: 10px;
-	background-color: #B6CC95;
-}
-
-#title {
-	margin: 7% 0 0 0;
-	font-size:4em;
-	font-weight: bold;
-}
-
-#subtitle {
-	font-size: 1em;
-}
-
-#log-form {
-/* 	border: 1px solid white; */
-	width: 580px;
-	height: 280px;
-	margin: 8px auto;
-}
-
-#member,#line,#nonmember {
-	float:left;
-}
-
-#member {
-/* 	border : 1px solid red; */
-	width: 63%;
-	height: 100%;
-}
-
-#line {
-	border: 3px dashed #0D336A;
-	height: 100%;
-	margin : 0 6px;
-}
-
-#nonmember {
-/* 	border: 1px solid green; */
-	width: 33%;
-	height: 100%;
-	cursor: pointer;
-}
-
-input {
-	color:#827773;
-	width: 80%;
-	height: 45px;
-	border: 2px solid #0D336A;
-	border-radius:10px;
-	padding: 0 15px;
-	font-size: large;
-	margin : 4px 0 0 5%;
-}
-
-#upasswd {
-	margin-top: 4px !important;
-}
-
-#signin {
-	
-}
-#member-bottom {
-	margin: 15px 0 4px 0;
-	text-align: center;
-}
-
-#member-bottom > a {
-	text-decoration: none;
-}
-<!-- 회원가입폼 -->
-/* signinModal table {
-	margin : 0 auto;
-} */
-
-td {
-	border: 1px solid red;
-}
-
-.signin-head {
-	border: 1px solid red;
-	font-size: large;
-	padding-top: 12px;
-	
-} 
-
-.signin-body {
-	border: 1px solid red;
-	width: 320px;
-	vertical-align: middle;
-}
-
-.signin-input {
-	
-}
-
 #phoneNoReg {	
-	height:33px;
-	width:44px;
+	height:33px !important;
+	width:44px !important;
 	position:absolute;
 	margin:4px;
 }
+
+
 </style>
 </head>
 <body>
@@ -162,7 +33,7 @@ td {
  	 	<input id="uid" placeholder="아이디를 입력해주세요.">
  	 	<input id="upasswd" type="password" placeholder="비밀번호를 입력하세요.">
  	 	<div id='member-bottom'>
- 	 		<a id="signin" href="#" data-toggle="modal" data-target="#signinModal" onclick="plan();">아이디가 없으세요?</a>
+ 	 		<a id="signin" href="#" data-toggle="modal" data-target="#signinModal">아이디가 없으세요?</a>
  	 	</div>
  	 	<button id='login'>마켓 입장</button>
  	 	<div id='other-id'>
@@ -186,13 +57,13 @@ td {
  	</div>
  </div>
 
-<!-- Modal -->
+<!-- 회원가입 Modal -->
 <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div id="signin-modal-content" class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">캠퍼가 되어보세요</h4>
+        <h4 class="modal-title" id="myModalLabel"><b>캠퍼가 되어보세요</b></h4>
       </div>
       <div class="modal-body">
         <table style="margin:0 auto;">
@@ -201,7 +72,7 @@ td {
         			<p>이메일</p>
         		</td>
         		<td class='signin-body'>
-        			<input class='signin-input' type="email" placeholder="이메일을 입력해주세요">
+        			<input id = 'signinEmail' class='signin-input' type='email' placeholder="이메일을 입력해주세요">
         		</td>
         	</tr>
         	<tr>
@@ -209,7 +80,7 @@ td {
         			<p>비밀번호</p>
         		</td>
         		<td class='signin-body'>
-        			<input class='signin-input' type="email" placeholder="비밀번호를 입력해주세요">
+        			<input id = 'signinPwd1' class='signin-input' type='password' placeholder="비밀번호를 입력해주세요">
         		</td>
         	</tr>
         	<tr>
@@ -217,7 +88,7 @@ td {
         			<p>비밀번호 확인</p>
         		</td>
         		<td class='signin-body'>
-        			<input class='signin-input' type="email" placeholder="비밀번호를 한번 더 입력해주세요">
+        			<input id = 'signinPwd2' class='signin-input' type="password" placeholder="비밀번호를 한번 더 입력해주세요">
         		</td>
         	</tr>
         	<tr>
@@ -225,7 +96,7 @@ td {
         			<p>핸드폰</p>
         		</td>
         		<td class='signin-body'>
-        			<input class='signin-input' type="email" style="width: 180px;" placeholder="폰 번호를 입력해주세요">
+        			<input id = 'signinPhone' class='signin-input' type="email" style="width: 180px;" placeholder="폰 번호를 입력해주세요">
         			<button id="phoneNoReg" class="btn btn-cm">인증</button>
         		</td>
         	</tr>
@@ -233,17 +104,20 @@ td {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-cm-default" data-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-cm">가입하기</button>
+        <button id="signinBtn" type="button" class="btn btn-cm">가입하기</button>
       </div>
     </div>
   </div>
+  </div>
+<div id='signin-modal'>
 </div>
+
  
 </body>
 <script>
 
 $(function(){
-	
+	$('#signin-modal').load('forms/signin.html');
 });	
 
 $('#login').click(function(){
@@ -252,12 +126,102 @@ $('#login').click(function(){
 });
 
 $('#nomemlogin').click(function(){
-	alert('로그인 없이 메인페이지로 넘어감');
+	location.href = 'main';
 });
 
-function plan() {
-	console.log("닉네임, 성별은 가입 후 첫 활동 때 입력 받을 예정입니다.");
+$('#signinBtn').click(function() {
+	alert("가입하기 버튼");
+});
+
+$('#phoneNoReg').click(function(){
+	alert("인증버튼");
+	console.log("또다른 윈도우 창이 뜨면서 인증번호를 받음");
+});
+
+
+
+/*  -------------------------------회원가입 유효성 검사 시작-----------------------------------  */
+
+
+//space 가 있으면 true, 없으면 false 
+function checkSpace(str)
+{
+     if(str.search(/\s/) != -1){
+      	return true;
+     } else {
+       return false;
+     }
+}
+
+function checkEmail(){ 
+	if(checkSpace($('#signinEmail').val())){
+			alert("이메일 공백있음");
+			return false;
+	}else if(!/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/.test($('#signinEmail').val())){
+		//유효성실패	
+		alert("이메일 유효성실패");
+		return false;
+		
+    }else{
+    	//유효성통과 
+    	alert("이메일 유효성성공");
+    	console.log("dd", $('#signinEmail').val());
+    	return true;
+    	}
 };
+
+function checkPwd1(){
+	if(checkSpace($('#signinPwd1').val())){
+		alert("비번 공백있음");
+		return false;
+	}else if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd1').val())){
+		//유효성실패 
+		console.log("aa", $('#signinPwd1').val());
+		alert("비밀번호1 유효성 실패");
+  		return false;
+    }else{
+    	//유효성통과 
+    	alert("비밀번호1 유효성성공");
+    	//return true;
+    }
+};
+
+function checkPwd2(){
+	if(checkSpace($('#signinPwd2').val())){
+		alert("비번 공백있음");
+		return false;
+	}else if(!/^[a-zA-Z0-9]{6,16}$/.test($('#signinPwd2').val())){
+		//유효성실패	
+		alert("비밀번호2 유효성실패");
+		return false;
+    }else if($('#signinPwd1').val() != $('#signinPwd2').val()){
+   		 //유효성실패
+   		 alert("비밀번호2 비밀번호1,2 불일치");
+  		return false;
+    }else{
+     	//유효성통과 
+     	alert("비밀번호2 유효성성공");
+    	return true;
+    }
+};
+
+$('#signinEmail').focusout(function(){
+	checkEmail();
+	//리턴값을 말풍선에 글넣기 
+});
+
+$('#signinPwd1').focusout(function(){
+	checkPwd1();
+	//리턴값을 말풍선에 글넣기 
+});
+
+$('#signinPwd2').focusout(function(){
+	checkPwd2();
+	//리턴값을 말풍선에 글넣기 
+});
+
+
+/*  -------------------------------회원가입 유효성 검사 끝-----------------------------------  */
 
 </script>
 </html>
