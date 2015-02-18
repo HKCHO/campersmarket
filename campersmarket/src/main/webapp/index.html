@@ -4,10 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <title>캠퍼스 마켓 :: 캠퍼스 마켓과 함께 즐거운 캠핑 되세요</title>
-<script src='../js/jquery-1.11.1.js'></script>
-<script src='../js/bootstrap.js'></script>
-<link rel='stylesheet' href='../css/bootstrap.css'>
-<link rel='stylesheet' href='../css/cpsmarket.css'>
+<script src='js/jquery-1.11.1.js'></script>
+<script src='js/bootstrap.js'></script>
+<link rel='stylesheet' href='css/bootstrap.css'>
+<link rel='stylesheet' href='css/cpsmarket.css'>
 <style>
 <!-- 회원가입 모달 레이어 -->
 #phoneNoReg {
@@ -136,7 +136,7 @@ html {
 	border-right: none;
 	display:inline;
 	margin: 4px 0 0 0 !important;
-	background: url(../imagesource/m1/glyphicons-28-search.png) no-repeat scroll 7px 7px;
+	background: url(imagesource/m1/glyphicons-28-search.png) no-repeat scroll 7px 7px;
 	padding-left: 40px;
 }
 
@@ -209,7 +209,7 @@ html {
 			<div id='right-m'>
 				<div id='nolog'>
 					<ul>
-						<li><a id='loadlogin' href="#" onclick="alarm();">로그인</a><span class="partition">|</span></li>
+						<li><a id='loadlogin' href="#" onclick="login();">로그인</a><span class="partition">|</span></li>
 						<li><a id='signin' href="#" data-toggle="modal" data-target="#signinModal">회원가입</a><span class="partition">|</span></li>
 						<li><a href="#" onclick="alarm();">찜한물건</a><span class="partition">|</span></li>
 						<li><a href="#" onclick="alarm();">내 텐트</a></li>
@@ -241,11 +241,11 @@ html {
 	<nav id="cm-m-nav">
 		<table id="cm-m-menu">
 			<tr>
-				<td class='menus' data-cmenu="together"><img class='menu-icon' src="../imagesource/m1/glyphicons-44-group.png"><span>같이가요</span></td>
-				<td class='menus' data-cmenu="trade"><img class='menu-icon' src="../imagesource/m1/glyphicons-82-refresh.png"><span>바꿔요</span></td>
-				<td class='menus' data-cmenu="give"><img class='menu-icon' src="../imagesource/m1/glyphicons-70-gift.png"><span>드려요</span></td>
-				<td class='menus' data-cmenu="help"><img class='menu-icon' src="../imagesource/m1/glyphicons-523-user-flag.png"><span>도와줘요</span></td>
-				<td class='menus' data-cmenu="bulletin"><img class='menu-icon' src="../imagesource/m1/glyphicons-246-chat.png"><span>시끌시끌</span></td>
+				<td class='menus' data-cmenu="together"><img class='menu-icon' src="imagesource/m1/glyphicons-44-group.png"><span>같이가요</span></td>
+				<td class='menus' data-cmenu="trade"><img class='menu-icon' src="imagesource/m1/glyphicons-82-refresh.png"><span>바꿔요</span></td>
+				<td class='menus' data-cmenu="give"><img class='menu-icon' src="imagesource/m1/glyphicons-70-gift.png"><span>드려요</span></td>
+				<td class='menus' data-cmenu="help"><img class='menu-icon' src="imagesource/m1/glyphicons-523-user-flag.png"><span>도와줘요</span></td>
+				<td class='menus' data-cmenu="bulletin"><img class='menu-icon' src="imagesource/m1/glyphicons-246-chat.png"><span>시끌시끌</span></td>
 			</tr>
 		</table>
 	</nav>
@@ -256,11 +256,11 @@ html {
 </body>
 <script>
 $(function() {
-	$('#signin-modal').load('../forms/signin.html');
+	$('#signin-modal').load('forms/signin.html');
 });
 
 $(function(){
-	$('#my-Info').load('../forms/myInfo.html');
+	$('#my-Info').load('forms/myInfo.html');
 })
 
 
@@ -274,8 +274,8 @@ function search() {
 	alert("It works!");
 };
 
-function alarm() {
-	$('#cm-content').attr('src','content/login');
+function login() {
+	$('#cm-content').attr('src','forms/login');
 }
 
 /* 화면 코딩용 버튼입니다. */
