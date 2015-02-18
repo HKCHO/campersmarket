@@ -19,7 +19,7 @@
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/campersmarket?useUnicode=true&amp;characterEncoding=utf8" />
 		<property name="username" value="camp-admin" />
-		<property name="password" value="joyoonji" />
+		<property name="password" value="joyoonji" /> 
 	</bean>
 
 	<!-- SqlSessionFactory 준비 -->
