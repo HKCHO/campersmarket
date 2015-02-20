@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+/* 로그인 화면 css */
+
+#loginBtn { color:#0E346B; width: 89%; height: 45px; border: 2px solid #0D336A; border-radius:10px; margin : 8px 0 0 5%; font-size: x-large;	cursor: pointer; background-color: #7ECBBE; box-shadow: 2px 2px 15.5px #888888; text-shadow: 2px 2px 5.5px #888888; }
+#other-id { border : 1px dashed white; margin: 20px 0; height: 55px; text-align: center; }
+#centre-form { width: 600px; height:300px; margin: 0 auto; top: 36%; margin-top: 100px; border:4px solid #0D336A; border-radius: 10px; background-color: #B6CC95; }
+#log-form { width: 580px; height: 280px; margin: 8px auto; }
+#uid,#upasswd { width: 89%; }
+#upasswd { margin-top: 4px !important; }
+#member-bottom { margin: 15px 0 4px 0; text-align: center; }
+#member-bottom > a { text-decoration: none; }
+
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: inherit !important; }
+user agent stylesheetdiv { display: block; }
+Pseudo ::before element
+*:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: inherit !important; }
+hr { margin : 3px !important; }

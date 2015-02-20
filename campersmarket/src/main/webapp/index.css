@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+html { background-color: white; }
+#cm-main { height: 100%; }
+#cm-header { height:80px; }
+#cm-logo { color:#E0367C; display:inline; font-size: xx-large; font-weight: bold; line-height: 0.828571; margin-top: 13px; margin-left: 30px; position: absolute; cursor:default; }
+
+#myMenu { background-color:white; border-bottom: 1px solid #f3f3f3; height: 30px; }
+
+<!-- 회원가입 모달 레이어 -->
+#phoneNo { width:218px !important; }
+#phoneNoReg { height: 46px; width: 72px; position: absolute; margin: 4px; }
+
+<!-- 회원가입 모달 레이어 -->
+input.signin-input { width:295px !important; }
+
+#header-container { width: 70%; height: 100%; margin:0 auto; }
+#mm-container { width: 70%; height: 100%; margin: 0 auto; }
+
+#left-m, #right-m { font-size:11px; padding:3px; height:100%; }
+#left-m { width: 33%; float: left; padding-top:6px; cursor:default; }
+#right-m { width: 50%; float:right; }
+.partition { margin: 0 20px; cursor: default; }
+
+#alarmbox { border-top: 1px solid #B5CB95; height:30px; }
+#cm-m-nav { background-color:#81C9BD; }
+.menu-icon { width: 20px; height: 20px; margin-bottom: 4px; margin-right: 7px; }
+#cm-m-menu { width:70%; background-color: #B5CC95; margin: 0 auto; }
+#cm-m-menu td{ width:20%; padding:10px; height:50px; border-left: 1px solid white; border-right: 1px solid white; text-align: center; font-size: large; font-weight: bolder; cursor: pointer; }
+#cm-content { position:relative; margin-top:5px; margin-left: 15%; margin-bottom: 80px; border: 1px solid #f3f3f3; width: 70%; height: 780px; }
+#cm-content body { width: 100%; height: 80vh; margin: 0px !important; }
+
+#searchbar { position: absolute; width: 30%; margin-left: 19%; margin-top: 13px; }
+#searchSite { width: 80%; font-size: medium; border-radius: 10px 0 0 10px; border-right: none; display:inline; margin: 4px 0 0 0 !important; background: url(imagesource/m1/glyphicons-28-search.png) no-repeat scroll 7px 7px; padding-left: 40px; }
+#searchBtn { border: 2px solid #0D336A; border-radius: 0 10px 10px 0; background-color: #7ECBBE; width: 60px; text-align: center; font-weight: bold; padding:12.5px; margin-left: -5px; cursor:pointer; }
+
+#nolog , #logged { padding-top:3px; text-align:right; width:87%; height:100%; float:right; }
+#nolog > ul, #logged > ul { float: right; position: relative; right: 20px; }
+#nolog > ul > li , #logged > ul > li { list-style-type: none; float:left; }
+#nolog > ul > li > a , #logged > ul > li > a { color:#0E346B;	cursor:pointer; text-decoration: none; }
+#logged { display:none; width:87%; height:100%; float:right; }
+
+#userNick { font-weight: bold; }
