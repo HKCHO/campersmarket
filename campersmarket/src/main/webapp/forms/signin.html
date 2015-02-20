@@ -11,6 +11,7 @@
 }
 .signin-head {
 	font-size: large;
+	font-weight: bold;
 	padding-top: 12px;
 	
 } 
@@ -39,7 +40,7 @@
         			<p>이메일</p>
         		</td>
         		<td class='signin-body'>
-        			<input class='signin-input' type="email" placeholder="이메일을 입력해주세요">
+        			<input id='uEmail' class='signin-input' type="email" placeholder="이메일을 입력해주세요">
         		</td>
         	</tr>
         	<tr>
@@ -47,7 +48,7 @@
         			<p>비밀번호</p>
         		</td>
         		<td class='signin-body'>
-        			<input class='signin-input' type="email" placeholder="비밀번호를 입력해주세요">
+        			<input id='uPasswd'  class='signin-input' type="password" placeholder="비밀번호를 입력해주세요">
         		</td>
         	</tr>
         	<tr>
@@ -55,7 +56,15 @@
         			<p>비밀번호 확인</p>
         		</td>
         		<td class='signin-body'>
-        			<input class='signin-input' type="email" placeholder="비밀번호를 한번 더 입력해주세요">
+        			<input id='chkPasswd' class='signin-input' type="password" placeholder="비밀번호를 한번 더 입력해주세요">
+        		</td>
+        	</tr>
+        	<tr>
+        		<td class='signin-head'>
+        			<p>이름</p>
+        		</td>
+        		<td class='signin-body'>
+        			<input id='uName' class='signin-input' type="text" placeholder="이름을 입력해 주세요">
         		</td>
         	</tr>
         	<tr>

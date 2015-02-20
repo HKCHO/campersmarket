@@ -10,6 +10,20 @@
 <link rel='stylesheet' href='css/cpsmarket.css'>
 <link rel='stylesheet' href='index.css'>
 <style>
+#wing-menu-l , #wing-menu-r {
+ border : 1px solid red;
+ width: 12.7%;
+ height:450px;
+ position : fixed;
+ 
+ top: 28vh;
+}
+#wing-menu-l {
+	left: 18px;
+}
+#wing-menu-r {
+	right: 18px;
+}
 </style>
 </head>
 <body id='cm-main'>
@@ -59,28 +73,29 @@
 			</tr>
 		</table>
 	</nav>
-	<iframe id='cm-content'>
+	<iframe id='cm-content' src='contents/news.html'>
 	</iframe>
 	<div id='signin-modal'></div>
 	<div id='my-Info'></div>
-	<div id='wing-menu-l'></div>
-	<div id='wing-menu-r'></div>
+	<div id='wing-menu-l'>
+		<p>레프트윙 - 윤종익</p>
+		<p>내가 등록한 물건, 같이가요 컨텐츠에 대한 정보가 올라온다. 와꾸 짜놔라</p>
+	</div>
+	<div id='wing-menu-r'>
+		<p>라이트윙 - 지용근</p>
+		<p>내가 봤던 물건들 리스트가 올라온다. 와꾸 짜놔라</p>
+	</div>
 </body>
 <script>
 $(function() {
 	$('#signin-modal').load('forms/signin.html');
-});
-
-$(function(){
 	$('#my-Info').load('forms/myInfo.html');
-})
-
+});
 
 $('.menus').click(function(){
 	console.log($(this).data("cmenu"));
 	console.log($(this).children().next().html());
 	var menuAddress = $(this).data("cmenu");
-	//alert($(this).children().next().html());
 	
 	$('#cm-content').attr('src','contents/' + menuAddress);
 });
@@ -103,10 +118,9 @@ $('#cm-logo').click(function(){
 		$('#nolog').css('display','none');
 	}
 });
-
+/* 코딩 후 삭제해 주세요 */
 
 $('#myInfo').click(function(){
-	
 })
 	
 </script>

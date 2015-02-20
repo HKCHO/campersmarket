@@ -2,10 +2,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src='../../js/jquery-1.11.1.js'></script>
+<script src='../../js/bootstrap.js'></script>
+<link rel='stylesheet' href='../../css/bootstrap.css'>
+<link rel='stylesheet' href='../../css/cpsmarket.css'>
 <meta charset="UTF-8">
 <title>도와줘요 화면</title>
 </head>
+<style>
+body {
+	height: 80vh;
+}
+#hl-body { border: 1px solid blue; height: 773.984px; }
+#hl-urgent { 
+	border: 1px solid red; 
+	width:95%; 
+	height: 50px;
+	margin: 0 auto;
+	margin-top:5px;
+	margin-bottom: 10px;
+}
+#hl-request-box {
+	border: 1px solid blue;
+	margin: 0 auto;
+	width: 95%;
+	height: 300px;
+}
+</style>
 <body>
-<h1>도와줘요</h1>
+	<div id='hl-body'>
+		<div id='hl-urgent'>
+			여기에는 설정된 위치를 기반으로 해서, 긴급 속보나 알림, 대피, 사망사고 등을 알려줄 예정이야.
+		</div>
+		<div id='hl-request-box'>
+			<div id='hl-request-list'>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

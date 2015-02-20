@@ -2,10 +2,94 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src='../../js/jquery-1.11.1.js'></script>
+<script src='../../js/bootstrap.js'></script>
+<link rel='stylesheet' href='../../css/bootstrap.css'>
+<link rel='stylesheet' href='../../css/cpsmarket.css'>
 <meta charset="UTF-8">
 <title>바꿔요 화면</title>
+<style>
+body {
+	height: 80vh;
+}
+#tr-body { border: 1px solid blue; height: 773.984px; }
+#tr-location-box {
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 95%;
+	height: 400px;
+	border: 1px solid green;
+}
+#tr-goods-info {
+	border:1px solid pink;
+	width: 35%;
+	height: 100%;
+	display:inline-block;
+}
+#tr-map-ar {
+	border:1px solid black;
+	width: 64%;
+	height: 100%;
+	float:right;
+	display:inline-block;
+}
+#cp-location-table {
+	width:100%;
+	height:100%;
+}
+#cp-location-table td {
+	border : 1px solid purple;
+}
+#tr-menu-table {
+	border: 1px solid lime;
+	width: 95%;
+	height: 280px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+</style>
 </head>
 <body>
-<h1>바꿔요</h1>
+	<div id='tr-body'>
+		<div id='tr-location-box'>
+			<div id='tr-goods-info'>
+				<table id='cp-location-table'>
+					<thead>
+						<tr>
+							<td class='cp-location'>여기에는 물건 사진이 뜬다</td>
+							<td class='dest-info'>물건을 올린 사람, 물건에 대한 설명, 바꾸고 싶은 물건</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='info' data-infono='1'>
+							<td class='cp-location'></td>
+							<td class='dest-info'></td>
+						</tr>
+						<tr class='info' data-infono='2'>
+							<td class='cp-location'></td>
+							<td class='dest-info'></td>
+						</tr>
+						<tr class='info' data-infono='3'>
+							<td class='cp-location'></td>
+							<td class='dest-info'></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id='tr-map-ar'>
+				<h1>바꿔요 화면의 맵, 여기도 마찬가지로 지도를 갖다 꽂는다!<br>
+					지도에 표시되는 아이콘은 물건사진으로 표현되고, 해당 물건을 누르면 모달레이어가 뜨는 식으로 구성하고 싶어.
+				</h1>
+			</div>
+		</div>
+		<div id='tr-menu-table'>
+		 <h2>여기서는 내가 올린 물건과 내가 바꾸고 싶은 물건에 대한 정보를 얻을 수 있어</h2>
+		 <p>물건은 다음과 같은 순서로 바꿀 수 있어, 1)검색이나 맵에서 탐색 2)해당 아이템에 교환신청 3-1)교환 거부시 이벤트 무효화 3-2)교환 성사시 거래위치 설정 4)교환 내용은 '내 텐트' 컨텐츠에 남는다.</p>
+		 <p>문제 : 내가 생각하기로는 물건을 검색하는 방법이 상단에 서치바를 둘 것인가, 셀렉트 버튼을 둘 것인가야</p>
+		 <p>  1)서치바를 둘 경우 검색결과가 광범위 해지거나, 일치가 안되어 찾기 힘든 도아니면 모가 되버린다.<br>
+		      2)셀렉트 버튼을 둘 경우 검색결과가 굉장히 광범위 해지거나, 물건을 올릴때 카테고리를 설정해야하야 하므로 유저도 매우 귀찮을 꺼야<br>
+		      3)또 생각해보면 사실상 캠핑장의 규모가 몇천 텐트 단위로 오지 않고, 실제로는 주변에 10개 많으면 50개 텐트밖에 안올텐데 아예 검색기능을 제공하지 않는것이 어떨까? 하는 생각도 있어<br>
+		</div>
+	</div>
 </body>
 </html>
