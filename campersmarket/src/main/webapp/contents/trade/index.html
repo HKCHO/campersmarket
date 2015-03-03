@@ -77,9 +77,9 @@ body {
 				</table>
 			</div>
 			<div id='tr-map-ar'>
-				<h1>바꿔요 화면의 맵, 여기도 마찬가지로 지도를 갖다 꽂는다!<br>
-					지도에 표시되는 아이콘은 물건사진으로 표현되고, 해당 물건을 누르면 모달레이어가 뜨는 식으로 구성하고 싶어.
-				</h1>
+				<div id="tradeMap" style="width:100%;height:100%;"></div>
+				<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=3356d66ef48a5dcd84b9087eb48b65de"></script>
+				<!-- apikey 문의는 조현권에게~ -->
 			</div>
 		</div>
 		<div id='tr-menu-table'>
@@ -92,4 +92,21 @@ body {
 		</div>
 	</div>
 </body>
+<script>
+
+	var container = document.getElementById('tradeMap');
+  var options = {
+    center : new daum.maps.LatLng(33.450701, 126.570667),
+    level : 3
+  };
+
+  var map = new daum.maps.Map(container, options);
+  
+  var mapTypeControl = new daum.maps.MapTypeControl();
+
+  map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+
+  var zoomControl = new daum.maps.ZoomControl();
+  map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+</script>
 </html>
