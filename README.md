@@ -12,6 +12,6 @@ gradle 프로젝트로 진행 중인 웹앱입니다.<br>
 <br>
 <h3>TEAM : CHO YOON JI(조윤지)</h3>
 <p> - 조현권 : (소환사) </p>
-<p> - 윤종익 : (BRONZE IV 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
+<p> - 윤종익(3월 9일 시작) : (BRONZE IV 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
 <p> - 지용근 : (UNRANKED 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
 
