@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <script src='../../js/jquery-1.11.1.js'></script>
 <script src='../../js/bootstrap.js'></script>
+<script src='cp_js/search.js'></script>
 <link rel='stylesheet' href='../../css/bootstrap.css'>
 <link rel='stylesheet' href='../../css/cpsmarket.css'>
 <title>같이가요 화면</title>
@@ -22,7 +23,7 @@ body {
 }
 #cp-destination-info {
 	border:1px solid pink;
-	width: 35%;
+	width: 100%;
 	height: 100%;
 	display:inline-block;
 }
@@ -36,6 +37,7 @@ body {
 #cp-location-table {
 	width:100%;
 	height:100%;
+	background-image: url("img/box_003_bg.gif");
 }
 #cp-location-table td {
 	border : 1px solid purple;
@@ -47,37 +49,122 @@ body {
 	margin-top: 15px;
 	height: 250px;
 }
+#cp-title-main{
+  width: 100%;
+  border: 0;
+  background-image: url("img/carpool_03.gif"); 
+}
+#search-main{
+ width: 100%;
+ border: 2px solid #e8e8e8 ;
+ 
+}
+#image_search{
+ border: 0px solid red;
+  width: 100px;
+  height: 30px;
+}
+
 </style>
 </head>
 <body>
 <div id='cp-body'>
+<table>
+          <tbody id='cp-title-main'><tr>
+            <td width="100%"><img src="img/carpool_04.gif"></td>
+            <td width="30%" align="right" style="padding-right:10px">
+            <a href="javascript:alert('운전자회원으로 로그인해주세요');">
+            <img src="img/carpool_02.gif" border="0"></a></td>
+          </tr>
+        </tbody>
+          <tr>
+        <td height="10"></td>
+      </tr>
+        </table>
+        
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:solid 2px #e8e8e8; border-collapse:collapse;">
+		
+<colgroup>
+  <col bgcolor="#f4f4f4">
+  <col bgcolor="#eaeaea">
+  <col bgcolor="#f4f4f4">  
+</colgroup>
+          <tbody><tr>
+            <td width="33%" height="5px"></td>
+            <td width="33%"></td>
+            <td width="34%"></td>
+          </tr>
+
+<tr>
+
+
+            <td class="padding_A2"><img src="img/icon_002.gif">&nbsp; <a href="#">출퇴근카풀</a></td>
+            <td class="padding_A2"><img src="img/icon_002.gif">&nbsp; <a href="#">통학이용카풀</a></td>
+            <td class="padding_A2"><img src="img/icon_002.gif">&nbsp; <a href="#">여행카풀</a></td>
+</tr><tr>            <td class="padding_A2"><img src="img/icon_002.gif">&nbsp; <a href="#">드라이브카풀</a></td>
+            <td class="padding_A2"><img src="img/icon_002.gif">&nbsp; <a href="#">비지니스카풀</a></td>
+            <td class="padding_A2"><img src="img/icon_002.gif">&nbsp; <a href="#">귀성,귀경/기타카풀</a></td>
+ 
+</tr>
+
+          <tr>
+            <td height="5px"></td>
+            <td></td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+        
+        </table>
+        
+        <table id="search-main">
+         <tr>
+          <td width="35%" height="40" align="center">분야:
+          <select itemname="카테고리" onchange="ms_selectdata_01_code(this,2);" id="ms_obj_data_01_code2[]"><option value="">전체</option><option value="189-190">출퇴근카풀</option><option value="189-191">통학이용카풀</option><option value="189-192">여행카풀</option><option value="189-202">드라이브카풀</option><option value="189-203">비지니스카풀</option><option value="189-204">귀성,귀경/기타카풀</option></select>
+          </td>
+          <td width="39%">지역별분류:
+          <select name="sido" id="sido">
+          <option value="">1차지역</option><option value="전국">전국</option><option value="서울">서울</option><option value="부산">부산</option><option value="대구">대구</option><option value="인천">인천</option><option value="광주">광주</option><option value="대전">대전</option><option value="울산">울산</option><option value="강원">강원</option><option value="경기">경기</option><option value="경남">경남</option><option value="경북">경북</option><option value="전남">전남</option><option value="전북">전북</option><option value="제주">제주</option><option value="충남">충남</option><option value="충북">충북</option></select>
+          <select name="gugun" id="gugun"><option value=""> 2차지역 (구)</option></select>
+          </td>
+          <td width="35%">
+           <input type="image" id="image_search" onclick="search_local();"  src="img/btn_jobs_search.gif">
+          </td>
+         </tr>
+         
+         <tr>
+            <td height="5px"></td>
+            <td></td>
+            <td></td>
+          </tr>
+         
+        
+        </table>
+        
+        
+        
+        
+        
+        
+
 	<div id='cp-location-box'>
-	 <div id='cp-destination-info'>
-	 	<table id='cp-location-table'>
-	 		<thead>
-	 			<tr>
-	 				<td class='cp-location'> 같이가요 화면이다. 이 테이블은 맵 테이블에서 뜨는 아이콘의</td>
-	 				<td class='dest-info'>정보가 정리되는 테이블이다. 아이콘 넘버, 도착지, 출발시간, 남는자리 같은 정보들이 뜰꺼야</td>
-	 			</tr>
-	 		</thead>
-	 		<tbody>
-	 			<tr class='info' data-infono='1'>
-	 				<td class='cp-location'>테이블을 여기에 이런식으로</td>
-	 				<td class='dest-info'>꽉 채우고 싶은데</td>
-	 			</tr>
-	 			<tr class='info' data-infono='2'>
-	 				<td class='cp-location'>페이징 처리하지말고</td>
-	 				<td class='dest-info'>무한 스크롤이었으면 좋겠다고 생각한디. 너희는??</td>
-	 			</tr>
-	 			<tr class='info' data-infono='2'>
-	 				<td class='cp-location'></td>
-	 				<td class='dest-info'></td>
-	 			</tr>
-	 		</tbody>
-	 	</table>
-	 </div>
-	 <div id='cp-map-ar'>
-	  <h1>같이가요 화면의 맵 화면이디. 여기다가 google맵이나 naver맵 api를 가져와서 꽂고 싶다.</h1>
+	 <div id='cp-destination-info' >
+	 <table width="100%">
+	     <tr>
+                <td width="6"><img src="img/box_003_left.gif" width="6" height="33"></td>
+                <td width="74" align="center" class="font12_black">순번</td>
+                <td width="140" align="center" class="font12_black">카풀별분야</td>
+                <td width="240" align="center" class="font12_black">내용</td>
+                <td width="80" align="center" class="font12_black">지역</td>
+                <td width="80" align="center" class="font12_black">작성자</td>
+                <td width="74" align="center" class="font12_black"><p>작성일</p>                  </td>
+                <td width="6" align="right"><img src="img/box_003_right.gif" width="6" height="33"></td>
+              </tr>
+              
+              </table>
+	 
+	 
+	 	
 	 </div>
 	</div>
 	<div id='cp-timetable'>
