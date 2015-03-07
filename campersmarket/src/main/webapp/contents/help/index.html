@@ -2,33 +2,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
 <title>도와줘요 화면</title>
 <script src='../../js/jquery-1.11.1.js'></script>
 <script src='../../js/bootstrap.js'></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYHnZoqi-TUtB2cduIc4NcOZ5MkyZ1R7s&sensor=false"
-        type="text/javascript"></script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYHnZoqi-TUtB2cduIc4NcOZ5MkyZ1R7s&sensor=false"
+	type="text/javascript"></script>
 <link rel='stylesheet' href='../../css/bootstrap.css'>
 <link rel='stylesheet' href='../../css/cpsmarket.css'>
 <style>
-body {
-	height: 80vh;
+#hl-body {
+	border: 1px solid blue;
+	height: 773.984px;
 }
-#hl-body { border: 1px solid blue; height: 773.984px; }
-#hl-urgent { 
-	border: 1px solid red; 
-	width:100%; 
+#hl-urgent {
+	border: 1px solid red;
+	width: 100%;
 	height: 50px;
 	margin: 0 auto;
-	margin-top:5px;
+	margin-top: 5px;
 	margin-bottom: 10px;
 }
 #hlmap-canvas {
 	width: 100%;
 	height: 30em;
-	margin:0px;
-	padding:0px;
+	margin: 0px;
+	padding: 0px;
 }
 #hl-local-box {
 	border: 1px solid green;
@@ -47,30 +47,41 @@ body {
   function initialize() {
 	  var mapOptions = {
 	    zoom : 17,
-	    center : new google.maps.LatLng(37.484269,126.929676)
+	    center : new google.maps.LatLng(37.484269, 126.929676)
 	  };
-	  map = new google.maps.Map(document.getElementById('hlmap-canvas'), mapOptions);
+	  map = new google.maps.Map(document.getElementById('hlmap-canvas'),
+	      mapOptions);
   }
-  
+
   google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+<script src='../../js/iframeSize.js'></script>
 </head>
 <body onload="initialize()">
 	<div id='hl-body'>
-		<div id='hl-urgent'>
-			여기에는 설정된 위치를 기반으로 해서, 긴급 속보나 알림, 대피, 사망사고 등을 알려줄 예정이야.(기상청 API, 공공데이터포털 : 재난안전-> 국민행동요령)
-		</div>
+		<div id='hl-urgent'>여기에는 설정된 위치를 기반으로 해서, 긴급 속보나 알림, 대피, 사망사고 등을
+			알려줄 예정이야.(기상청 API, 공공데이터포털 : 재난안전-> 국민행동요령)</div>
 		<div id='hl-local-box'>
 			<div id="hlmap-canvas"></div>
 			<p>설정된 위치를 기반으로 도움요청을 지도로 볼 수 있음(주변에 있는 도움이 필요한사람)</p>
-			<p>지도를 불러옴 (지도에 필요한 기능 : 커스텀 아이콘 출력, 위치 출력, 서버사이드 제작시 localization(L10N) 등)</p>
+			<p>지도를 불러옴 (지도에 필요한 기능 : 커스텀 아이콘 출력, 위치 출력, 서버사이드 제작시
+				localization(L10N) 등)</p>
 		</div>
 		<div id='hl-request-box'>
 			<p>지식인같은 문답형 게시판</p>
 			<p>캠핑장, 장소에 관계없이 질문과 응답을 할 수 있음</p>
-			<div id='hl-request-list'>
-			</div>
+			<div id='hl-request-list'></div>
 		</div>
 	</div>
 </body>
+<script>
+var oldFn = "";
+if (window.onload != null) {
+  oldFn = new String(window.onload); //window.onload의 함수를 문자열로 받는다
+  oldFn = oldFn.substring(25, oldFn.length - 2);
+}
+console.log(oldFn);
+window.onload = new Function("setFrameSize('cm-content');" + oldFn + ";"); //새함수와 기존의 함수를 추가해서 onload이벤트에 할당
+console.log(window.onload);
+</script>
 </html>
