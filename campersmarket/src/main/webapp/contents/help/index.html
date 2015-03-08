@@ -9,6 +9,7 @@
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYHnZoqi-TUtB2cduIc4NcOZ5MkyZ1R7s&sensor=false"
 	type="text/javascript"></script>
+<script src='../../js/iframeSize.js'></script>
 <link rel='stylesheet' href='../../css/bootstrap.css'>
 <link rel='stylesheet' href='../../css/cpsmarket.css'>
 <style>
@@ -55,7 +56,6 @@
 
   google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-<script src='../../js/iframeSize.js'></script>
 </head>
 <body onload="initialize()">
 	<div id='hl-body'>
@@ -74,14 +74,4 @@
 		</div>
 	</div>
 </body>
-<script>
-var oldFn = "";
-if (window.onload != null) {
-  oldFn = new String(window.onload); //window.onload의 함수를 문자열로 받는다
-  oldFn = oldFn.substring(25, oldFn.length - 2);
-}
-console.log(oldFn);
-window.onload = new Function("setFrameSize('cm-content');" + oldFn + ";"); //새함수와 기존의 함수를 추가해서 onload이벤트에 할당
-console.log(window.onload);
-</script>
 </html>

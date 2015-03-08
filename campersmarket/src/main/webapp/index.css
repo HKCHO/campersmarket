@@ -32,7 +32,7 @@ input.signin-input { width:295px !important; }
 
 #searchbar { position: absolute; width: 30%; margin-left: 19%; margin-top: 13px; }
 #searchSite { width: 80%; font-size: medium; border-radius: 10px 0 0 10px; border-right: none; display:inline; margin: 4px 0 0 0 !important; background: url(imagesource/m1/glyphicons-28-search.png) no-repeat scroll 7px 7px; padding-left: 40px; }
-#searchBtn { border: 2px solid #0D336A; border-radius: 0 10px 10px 0; background-color: #7ECBBE; width: 60px; text-align: center; font-weight: bold; padding:12.5px; margin-left: -5px; cursor:pointer; }
+#searchBtn { border: 2px solid #0D336A; border-radius: 0 10px 10px 0; background-color: #7ECBBE; width: 60px; text-align: center; font-weight: bold; padding:12.28px; margin-left: -5px; cursor:pointer; }
 
 #nolog , #logged { padding-top:3px; text-align:right; width:87%; height:100%; float:right; }
 #nolog > ul, #logged > ul { float: right; position: relative; right: 20px; }
