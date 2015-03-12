@@ -13,11 +13,13 @@
 body {
 	height: 80vh;
 }
-#cp-body { border: 1px solid blue; height: 773.984px; }
+#cp-body {
+ display:table;
+ border: 1px solid blue; height: 773.984px; }
 #cp-location-box {
 	margin: 0 auto;
 	margin-top: 10px;
-	width: 95%;
+	width: 100%;
 	height: 400px;
 	border: 1px solid green;
 }
@@ -49,10 +51,14 @@ body {
 	margin-top: 15px;
 	height: 250px;
 }
-#cp-title-main{
-  width: 100%;
-  border: 0;
-  background-image: url("img/carpool_03.gif"); 
+#cp-title{
+
+  
+  display:inline-block;
+  line-height:50px;
+  width: 70%;
+  height:50px;
+  border: 1px solid red;
 }
 #search-main{
  width: 100%;
@@ -65,22 +71,35 @@ body {
   height: 30px;
 }
 
+#cp-request{
+height: 50px;
+float: right;
+margin-right: 80px;
+ 
+}
+
+#12{
+ vertical-align:middle;
+}
+
+#cp-board{
+text-align: left;
+ 
+}
+
+
+
+
 </style>
 </head>
 <body>
 <div id='cp-body'>
-<table>
-          <tbody id='cp-title-main'><tr>
-            <td width="100%"><img src="img/carpool_04.gif"></td>
-            <td width="30%" align="right" style="padding-right:10px">
-            <a href="javascript:alert('운전자회원으로 로그인해주세요');">
-            <img src="img/carpool_02.gif" border="0"></a></td>
-          </tr>
-        </tbody>
-          <tr>
-        <td height="10"></td>
-      </tr>
-        </table>
+<div id='cp-title'>
+<span id='12'>카풀이용자 전체정보</span>
+
+</div>
+<button type="button" id='cp-request' class="btn btn-primary">카풀등록신청</button>
+
         
         <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:solid 2px #e8e8e8; border-collapse:collapse;">
 		
@@ -148,24 +167,28 @@ body {
         
 
 	<div id='cp-location-box'>
-	 <div id='cp-destination-info' >
-	 <table width="100%">
-	     <tr>
-                <td width="6"><img src="img/box_003_left.gif" width="6" height="33"></td>
-                <td width="74" align="center" class="font12_black">순번</td>
-                <td width="140" align="center" class="font12_black">카풀별분야</td>
-                <td width="240" align="center" class="font12_black">내용</td>
-                <td width="80" align="center" class="font12_black">지역</td>
-                <td width="80" align="center" class="font12_black">작성자</td>
-                <td width="74" align="center" class="font12_black"><p>작성일</p>                  </td>
-                <td width="6" align="right"><img src="img/box_003_right.gif" width="6" height="33"></td>
-              </tr>
-              
-              </table>
-	 
-	 
-	 	
-	 </div>
+	
+	<table id='cp-board' class="table table-striped">
+	<tr class="active">
+	  <th style="width: 150px;">프로필</th>
+	  <th style="width: 200px;">출발</th>
+	  <th style="width: 200px;">도착</th>
+	  <th style="width: 150px;">유형</th>
+	  <th style="width: 150px;">자리/금액</th>
+	
+	</tr>
+	
+	<tr>
+	 <td>1</td>
+	 <td>1</td>
+	 <td>1</td>
+	 <td>1</td>
+	 <td>1</td>
+	
+	</tr>
+	
+</table>
+	
 	</div>
 	<div id='cp-timetable'>
 	 <h2>여기에다가는 주변에 있는 카풀의 목적지와 착석 가능한 자리수가 출발시간순으로 정렬이 될꺼야<br>
