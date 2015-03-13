@@ -22,7 +22,7 @@ input.signin-input { width:295px !important; }
 #right-m { width: 50%; float:right; }
 .partition { margin: 0 20px; cursor: default; }
 
-#alarmbox { border-top: 1px solid #B5CB95; height:30px; }
+#cm-usr-location { border-top: 1px solid #B5CB95; height:30px; }
 #cm-m-nav { background-color:#81C9BD; }
 .menu-icon { width: 20px; height: 20px; margin-bottom: 4px; margin-right: 7px; }
 #cm-m-menu { width:70%; background-color: #B5CC95; margin: 0 auto; }
