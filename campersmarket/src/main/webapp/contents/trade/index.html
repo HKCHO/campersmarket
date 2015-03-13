@@ -4,6 +4,176 @@
 <head>
 <script src='../../js/jquery-1.11.1.js'></script>
 <script src='../../js/bootstrap.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYHnZoqi-TUtB2cduIc4NcOZ5MkyZ1R7s&sensor=false"
+	      type="text/javascript"></script>
+	      
+<script type="text/javascript">
+
+var markers = [];
+var map;
+var geocoder;
+var infowindow = null;
+
+var latitude = 0;
+var longitude = 0;
+
+
+var startLat = null;
+var startLng = null;
+var endLat = null;
+var endLng = null;
+
+function initialize() {
+	geocoder = new google.maps.Geocoder();
+
+	// GPS 인식 가능 여부(현재 위치)
+	if (navigator.geolocation) {
+
+		navigator.geolocation.getCurrentPosition(function (pos) {
+
+			// 현재 위경도 값(GPS) 변수에 넣기.
+			var latitude = pos.coords.latitude;
+			var longitude = pos.coords.longitude;
+
+			var mapOptions = {
+				zoom: 17,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				center: new google.maps.LatLng(latitude,longitude)
+			};
+
+			map = new google.maps.Map(document.getElementById('map_canvas'),mapOptions);
+
+			// 현재 위치 마커 생성
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(latitude,longitude),
+				map: map,
+				draggable: false,
+				icon: "http://maps.google.com/mapfiles/ms/micons/man.png"
+			});
+			markers.push(marker);
+
+			// 처음 맵 로드 완료 후 지도 범위 확인을 위해 좌표 인식.
+			google.maps.event.addListener(map, 'idle', function(){
+				startLat = map.getBounds().getSouthWest().lat();
+				startLng = map.getBounds().getSouthWest().lng();
+				endLat = map.getBounds().getNorthEast().lat();
+				endLng = map.getBounds().getNorthEast().lng();
+
+				viewMarker();
+			});
+
+			// 줌 또는 드래그, 화면이동 등 지도 정보 변경시에 화면내에 마커만 표시하기위해 좌표 인식 s
+			google.maps.event.addListener(map, 'zoom_changed', function() {
+				startLat = map.getBounds().getSouthWest().lat();
+				startLng = map.getBounds().getSouthWest().lng();
+				endLat = map.getBounds().getNorthEast().lat();
+				endLng = map.getBounds().getNorthEast().lng();
+
+				viewMarker();
+			});
+
+			google.maps.event.addListener(map, 'dragend', function(){
+				startLat = map.getBounds().getSouthWest().lat();
+				startLng = map.getBounds().getSouthWest().lng();
+				endLat = map.getBounds().getNorthEast().lat();
+				endLng = map.getBounds().getNorthEast().lng();
+
+				viewMarker();
+			});
+
+			// 줌 또는 드래그등 지도 정보 변경시에 화면내에 마커만 표시하기위해 좌표 인식 se
+
+			// 현재 위치 기준 원 그리기
+			var populationOptions = {
+				strokeColor: '#000000',
+				strokeOpacity: 0.8,
+				strokeWeight: 2,
+				fillColor: '#808080',
+				fillOpacity: 0.5,
+				map: map,
+				center: new google.maps.LatLng(latitude,longitude) ,
+				radius: 150
+			};
+			cityCircle = new google.maps.Circle(populationOptions);
+
+
+		}, function (error) {
+			switch (error.code) {
+			case 1:
+				$("#errormsg").html("User denied the request for Geolocation.");
+				break;
+			case 2:
+				$("#errormsg").html("Location information is unavailable.");
+				break;
+			case 3:
+				$("#errormsg").html("The request to get user location timed out.");
+				break;
+			case 0:
+				$("#errormsg").html("An unknown error occurred.");
+				break;
+			}
+		});
+	} else {
+		alert("Geolocation is not supported by this browser.");
+	}
+}
+
+// 드롭 마커 보기 (ajax로 마커 가져오기)
+/* function viewMarker() {
+	if(startLat)
+	{
+		$.ajax({
+			type: "GET",
+			url: "/test/3300/3300.js",
+			 beforeSend: function() {
+				fnRemoveMarker();	// 조회 전 기존 마커 제거
+			 },
+			success: function (json) {
+				var markerList = $.parseJSON(json);
+				var listLen = markerList.length;
+				var kkk = 0 ;		//마커 갯수 확인 용
+				for(var i=0; i<listLen; i++){
+					if (parseFloat(startLat) <= parseFloat(markerList[i].lat) && parseFloat(startLng) <= parseFloat(markerList[i].lng) && parseFloat(endLat) >= parseFloat(markerList[i].lat) && parseFloat(endLng) >= parseFloat(markerList[i].lng))
+					{
+						kkk++;	//마커 갯수 확인 용
+						var marker = new google.maps.Marker({
+							position: new google.maps.LatLng(markerList[i].lat,markerList[i].lng),
+							map: map,
+							draggable: false,
+							icon: markerList[i].icon,
+							animation: google.maps.Animation.DROP,
+							html: markerList[i].cont
+						});
+						markers.push(marker);
+
+						var infowindow = new google.maps.InfoWindow()
+
+						google.maps.event.addListener(marker, "click", function () {
+							infowindow.setContent(this.html);
+							infowindow.open(map, this);
+						});
+					}
+				}
+				$("#marketCount").html("페이지내에 총 "+kkk+"개의 마커가 존재합니다.");
+			}
+		});
+	}
+} */
+
+// 마커 제거 함수
+function fnRemoveMarker()
+{
+	for (var i = 1; i < markers.length; i++) {
+		markers[i].setMap(null);
+	}
+}
+
+$( window ).load(function() {
+	initialize();
+});
+
+ </script>
+    
 <link rel='stylesheet' href='../../css/bootstrap.css'>
 <link rel='stylesheet' href='../../css/cpsmarket.css'>
 <meta charset="UTF-8">
@@ -30,7 +200,7 @@ body {
 	border:1px solid black;
 	width: 64%;
 	height: 100%;
-	float:right;
+	float:left;
 	display:inline-block;
 }
 #cp-location-table {
@@ -49,9 +219,12 @@ body {
 }
 </style>
 </head>
-<body>
+<body onload='initialize()'>
 	<div id='tr-body'>
 		<div id='tr-location-box'>
+			<div id='tr-map-ar'>
+				<div id='map_canvas' style="width:100%;height:100%;"></div>
+			</div>
 			<div id='tr-goods-info'>
 				<table id='cp-location-table'>
 					<thead>
@@ -76,12 +249,8 @@ body {
 					</tbody>
 				</table>
 			</div>
-			<div id='tr-map-ar'>
-				<div id="tradeMap" style="width:100%;height:100%;"></div>
-				<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=3356d66ef48a5dcd84b9087eb48b65de"></script>
-				<!-- apikey 문의는 조현권에게~ -->
-			</div>
 		</div>
+		
 		<div id='tr-menu-table'>
 		 <h2>여기서는 내가 올린 물건과 내가 바꾸고 싶은 물건에 대한 정보를 얻을 수 있어</h2>
 		 <p>물건은 다음과 같은 순서로 바꿀 수 있어, 1)검색이나 맵에서 탐색 2)해당 아이템에 교환신청 3-1)교환 거부시 이벤트 무효화 3-2)교환 성사시 거래위치 설정 4)교환 내용은 '내 텐트' 컨텐츠에 남는다.</p>
@@ -92,21 +261,4 @@ body {
 		</div>
 	</div>
 </body>
-<script>
-
-	var container = document.getElementById('tradeMap');
-  var options = {
-    center : new daum.maps.LatLng(33.450701, 126.570667),
-    level : 3
-  };
-
-  var map = new daum.maps.Map(container, options);
-  
-  var mapTypeControl = new daum.maps.MapTypeControl();
-
-  map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
-
-  var zoomControl = new daum.maps.ZoomControl();
-  map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
-</script>
 </html>
