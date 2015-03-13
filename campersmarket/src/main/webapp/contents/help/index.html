@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <title>도와줘요 화면</title>
 <script src='../../js/jquery-1.11.1.js'></script>
-<!-- <script src='../../js/bootstrap.js'></script> -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYHnZoqi-TUtB2cduIc4NcOZ5MkyZ1R7s&sensor=false"
 	      type="text/javascript"></script>
 <script src='../../js/iframeSize.js'></script>
@@ -15,61 +14,57 @@
 <script>
 	var initialLocation = new google.maps.LatLng(37.5181804 , 126.90554990000001); // 최초 맵의 위치를 신림역으로 표현합니다.
 	var browserSupportFlag =  new Boolean();
+	var map;
+	var usrMarker;
 	
   function loadHlMap() {
-  	var mapOptions = {
-	    zoom : 17, // 확대 레벨
-	    //center : new google.maps.LatLng(위도,경도), //맵에 표시되는 위치
-	    disableDefaultUI : false,            // 표준 UI를 사용하지 않습니다.
-	    scrollwheel : false                  // 맵 위에서 마우스 스크롤을 통한 zoom 기능을 제한합니다
-	  };
-	  
-	  var map = new google.maps.Map(document.getElementById('hlmap-canvas'), mapOptions);
-	  
-	  if(navigator.geolocation) { //HTML5에서 제공하는 geolocation함수가 브라우저에서 작동할 경우.
-	    browserSupportFlag = true;   // 현재 브라우저에서 'geolocation'을 지원함을 알림.
-	    navigator.geolocation.getCurrentPosition(function(position) {  //geolocation을 통해 현 위치정보를 가져옴.
-	      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude); //현 위치정보(position)에서 위도와 경도를 추출.
-	      
-	      map.setCenter(initialLocation);
-	      
-	    }, function() { //geolocation이 로딩 실패.
-	      handleNoGeolocation(browserSupportFlag); 
-	    });
-	  } else {
-	    browserSupportFlag = false;  // client의 브라우저에서 geolocation 함수를 지원하지 않을 경우. 브라우저지원표지를 false로 설정
-	    handleNoGeolocation(browserSupportFlag);
-	  }// geolocation end
-	  
-	  function handleNoGeolocation(errorFlag) {  //geolocation의 지원 여부를 알려주는 내장함수(inner function).
-	    if (errorFlag == true) {
-	      alert("위치 서비스 로딩 실패");
-	    } else {
-	      alert("위치정보를 지원하지 않는 브라우저입니다. 위치를 '서울 신림역'으로 설정합니다.");
-	    }
-	    map.setCenter(initialLocation);
-	  }//function handleNoGeolocation(errorFlag) end
-	  
-	  var usrLocationMarker = new google.maps.Marker({
-      position: initialLocation,
-      map: map,
-      //title: 'usr location'
-  });
+		var mapOptions = {
+		    zoom : 17, // 확대 레벨
+		    disableDefaultUI : false, // 표준 UI를 사용하지 않습니다.
+		    scrollwheel : false   	  // 맵 위에서 마우스 스크롤을 통한 zoom 기능을 제한합니다
+		  };
+	
+		  map = new google.maps.Map(document.getElementById('hlmap-canvas'), mapOptions);
+	
+		  if (navigator.geolocation) { //HTML5에서 제공하는 geolocation함수가 브라우저에서 작동할 경우.
+			  browserSupportFlag = true; // 현재 브라우저에서 'geolocation'을 지원함을 알림.
+			  navigator.geolocation.getCurrentPosition(function(position) { //geolocation을 통해 현 위치정보를 가져옴.
+				  initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); //현 위치정보(position)에서 위도와 경도를 추출.
+				  map.setCenter(initialLocation);
+				  
+				  usrMarker = new google.maps.Marker({
+				    position : initialLocation,
+				    map : map,
+				    title : 'Hello World!!'
+				  });
+				  
+			  }, function() { //geolocation이 로딩 실패.
+				  handleNoGeolocation(browserSupportFlag);
+			  });
+		  } else {
+			  browserSupportFlag = false; // client의 브라우저에서 geolocation 함수를 지원하지 않을 경우. 브라우저지원표지를 false로 설정
+			  handleNoGeolocation(browserSupportFlag);
+		  }// geolocation end
+	
+		  function handleNoGeolocation(errorFlag) { //geolocation의 지원 여부를 알려주는 내장함수(inner function).
+			  if (errorFlag == true) {
+				  alert("위치 서비스 로딩 실패");
+			  } else {
+				  alert("위치정보를 지원하지 않는 브라우저입니다. 위치를 '서울 신림역'으로 설정합니다.");
+			  }
+		  
+			  map.setCenter(initialLocation);
+			  
+		  }//function handleNoGeolocation(errorFlag) end
   }// loadHlMap() end
-
-  //google.maps.event.addDomListener(window, 'load', initialize); // window.onload함수에 initialize()를 등록 -> 현재는 <body>에 온로드 attr을 사용하여 주석처리.
-  
 </script>
 </head>
 <body onload="loadHlMap()">
 	<div id='hl-body'>
-		<div id='hl-urgent'>여기에는 설정된 위치를 기반으로 해서, 긴급 속보나 알림, 대피, 사망사고 등을
-			알려줄 예정이야.(기상청 API, 공공데이터포털 : 재난안전-> 국민행동요령)</div>
+		<div id='hl-urgent'>여기에는 설정된 위치를 기반으로 해서, 긴급 속보나 알림, 대피, 사망사고 등을 알려줄 예정이야.(기상청 API, 공공데이터포털 : 재난안전-> 국민행동요령)</div>
 		<div id='hl-local-box'>
 			<div id="hlmap-canvas"></div>
-			<p>설정된 위치를 기반으로 도움요청을 지도로 볼 수 있음(주변에 있는 도움이 필요한사람)</p>
-			<p>지도를 불러옴 (지도에 필요한 기능 : 커스텀 아이콘 출력, 위치 출력, 서버사이드 제작시
-				localization(L10N) 등)</p> 
+			<p>지도를 불러옴 (지도에 필요한 기능 : 커스텀 아이콘 출력, 위치 출력, 서버사이드 제작시 localization(L10N) 등)</p> 
 		</div>
 		<div id='hl-request-box'>
 			<p>지식인같은 문답형 게시판</p>
