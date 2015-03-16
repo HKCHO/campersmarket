@@ -1,8 +1,15 @@
 @CHARSET "UTF-8";
 
 #hl-body { border: 1px solid blue; height: 773.984px; }
-#hl-urgent { border: 1px solid red; width: 100%; height: 50px; margin: 0 auto; margin-top: 5px; margin-bottom: 10px; }
+#hl-urgent { font-weight:bolder; width: 100%; height: 1.8em; margin: 0 auto; }
 #hlmap-canvas { width: 100%; height: 30em; margin: 0px; padding: 0px; }
 #hl-local-box { border: 1px solid green; margin: 0 auto; width: 100%; }
 #hl-request-box { border: 1px solid blue; margin: 0 auto; width: 100%; height: 300px; }
 
+#hl-local-count {
+	color : black;
+}
+#hl-count-no {
+	color : red;
+	font-weight: bolder;
+}

@@ -78,22 +78,63 @@
 		<div id='hl-local-box'>
 			<div id="hlmap-canvas"></div>
 			<p id='countHl'></p>
-			<p>지도를 불러옴 (지도에 필요한 기능 : 커스텀 아이콘 출력, 위치 출력, 서버사이드 제작시 localization(L10N) 등)</p> 
+			<div id='hl-local-count'><p>주변에 <span id='hl-count-no'>3</span> 건의 도움요청이 있네요!</p></div> 
 		</div>
 		<div id='hl-request-box'>
-				<table id='hl-hrequest-table'>
-					<tr>
-						<!-- 도움요청은 작성뒤 한시간이 지나면 데이터가 삭제됩니다. -->
-						<th>번호</th>
-						<th>제목</th>
-						<th>글쓴이</th>
-						<th>작성시간</th>
-						<th>해결여부</th>
-						<th>조회</th>
-					</tr>
-					<tbody id='hl-hrequest-list'>
-					</tbody>
-				</table>
+			<table id='hl-hrequest-table' class='table table-hover'>
+				<tr>
+					<!-- 도움요청은 작성뒤 한시간이 지나면 데이터가 삭제됩니다. -->
+					<th>번호</th>
+					<th>제목</th>
+					<th>글쓴이</th>
+					<th>작성시간</th>
+					<th>해결여부</th>
+					<th>조회</th>
+				</tr>
+				<!-- 더미 데이터 -->
+				<tr>
+					<td class='hno'>1</td>
+					<td class='htitle'>dummy dummy dummy</td>
+					<td class='hwriter'>dummy</td>
+					<td class='hdate'>15.03.21</td>
+					<td class='hsolved'>해결됨</td>
+					<td class='hcount'>5</td>
+				</tr>
+				<tr>
+					<td class='hno'>1</td>
+					<td class='htitle'>dummy dummy dummy</td>
+					<td class='hwriter'>dummy</td>
+					<td class='hdate'>15.03.21</td>
+					<td class='hsolved'>해결됨</td>
+					<td class='hcount'>5</td>
+				</tr>
+				<tr>
+					<td class='hno'>1</td>
+					<td class='htitle'>dummy dummy dummy</td>
+					<td class='hwriter'>dummy</td>
+					<td class='hdate'>15.03.21</td>
+					<td class='hsolved'>해결됨</td>
+					<td class='hcount'>5</td>
+				</tr>
+				<tr>
+					<td class='hno'>1</td>
+					<td class='htitle'>dummy dummy dummy</td>
+					<td class='hwriter'>dummy</td>
+					<td class='hdate'>15.03.21</td>
+					<td class='hsolved'>해결됨</td>
+					<td class='hcount'>5</td>
+				</tr>
+				<tr>
+					<td class='hno'>1</td>
+					<td class='htitle'>dummy dummy dummy</td>
+					<td class='hwriter'>dummy</td>
+					<td class='hdate'>15.03.21</td>
+					<td class='hsolved'>해결됨</td>
+					<td class='hcount'>5</td>
+				</tr>
+				<!-- 더미 데이터 -->
+				<!-- 데이터 구축 후 페이징 처리 할 것 -->
+			</table>
 		</div>
 	</div>
 </body>
