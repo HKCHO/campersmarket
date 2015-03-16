@@ -69,7 +69,7 @@
 		  map.setCenter(initialLocation);
 
 	  }//function handleNoGeolocation(errorFlag) end
-  }// loadHlMap() end
+  }//loadHlMap() end
 </script>
 </head>
 <body onload="loadHlMap()">
@@ -81,9 +81,19 @@
 			<p>지도를 불러옴 (지도에 필요한 기능 : 커스텀 아이콘 출력, 위치 출력, 서버사이드 제작시 localization(L10N) 등)</p> 
 		</div>
 		<div id='hl-request-box'>
-			<p>지식인같은 문답형 게시판</p>
-			<p>캠핑장, 장소에 관계없이 질문과 응답을 할 수 있음</p>
-			<div id='hl-request-list'></div>
+				<table id='hl-hrequest-table'>
+					<tr>
+						<!-- 도움요청은 작성뒤 한시간이 지나면 데이터가 삭제됩니다. -->
+						<th>번호</th>
+						<th>제목</th>
+						<th>글쓴이</th>
+						<th>작성시간</th>
+						<th>해결여부</th>
+						<th>조회</th>
+					</tr>
+					<tbody id='hl-hrequest-list'>
+					</tbody>
+				</table>
 		</div>
 	</div>
 </body>
