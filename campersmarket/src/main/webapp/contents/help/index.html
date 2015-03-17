@@ -74,7 +74,7 @@
 </head>
 <body onload="loadHlMap()">
 	<div id='hl-body'>
-		<div id='hl-urgent'>여기에는 설정된 위치를 기반으로 해서, 긴급 속보나 알림, 대피, 사망사고 등을 알려줄 예정이야.(기상청 API, 공공데이터포털 : 재난안전-> 국민행동요령)</div>
+		<div id='hl-urgent' style="display:none;">여기에는 설정된 위치를 기반으로 해서, 긴급 속보나 알림, 대피, 사망사고 등을 알려줄 예정이야.(기상청 API, 공공데이터포털 : 재난안전-> 국민행동요령)</div>
 		<div id='hl-local-box'>
 			<div id="hlmap-canvas"></div>
 			<p id='countHl'></p>
@@ -94,40 +94,40 @@
 				<!-- 더미 데이터 -->
 				<tr>
 					<td class='hno'>1</td>
-					<td class='htitle'>dummy dummy dummy</td>
-					<td class='hwriter'>dummy</td>
+					<td data-eno='' class='htitle'>dummy dummy dummy</td>
+					<td data-uid='' class='hwriter'>dummy</td>
 					<td class='hdate'>15.03.21</td>
 					<td class='hsolved'>해결됨</td>
 					<td class='hcount'>5</td>
 				</tr>
 				<tr>
 					<td class='hno'>1</td>
-					<td class='htitle'>dummy dummy dummy</td>
-					<td class='hwriter'>dummy</td>
+					<td data-eno='' class='htitle'>dummy dummy dummy</td>
+					<td data-uid='' class='hwriter'>dummy</td>
 					<td class='hdate'>15.03.21</td>
 					<td class='hsolved'>해결됨</td>
 					<td class='hcount'>5</td>
 				</tr>
 				<tr>
 					<td class='hno'>1</td>
-					<td class='htitle'>dummy dummy dummy</td>
-					<td class='hwriter'>dummy</td>
+					<td data-eno='' class='htitle'>dummy dummy dummy</td>
+					<td data-uid='' class='hwriter'>dummy</td>
 					<td class='hdate'>15.03.21</td>
 					<td class='hsolved'>해결됨</td>
 					<td class='hcount'>5</td>
 				</tr>
 				<tr>
 					<td class='hno'>1</td>
-					<td class='htitle'>dummy dummy dummy</td>
-					<td class='hwriter'>dummy</td>
+					<td data-eno='' class='htitle'>dummy dummy dummy</td>
+					<td data-uid='' class='hwriter'>dummy</td>
 					<td class='hdate'>15.03.21</td>
 					<td class='hsolved'>해결됨</td>
 					<td class='hcount'>5</td>
 				</tr>
 				<tr>
 					<td class='hno'>1</td>
-					<td class='htitle'>dummy dummy dummy</td>
-					<td class='hwriter'>dummy</td>
+					<td data-eno='' class='htitle'>dummy dummy dummy</td>
+					<td data-uid='' class='hwriter'>dummy</td>
 					<td class='hdate'>15.03.21</td>
 					<td class='hsolved'>해결됨</td>
 					<td class='hcount'>5</td>
@@ -138,4 +138,9 @@
 		</div>
 	</div>
 </body>
+<script>
+$('.htitle').click(function(){
+	alert("제목 클릭됨");
+});
+</script>
 </html>
