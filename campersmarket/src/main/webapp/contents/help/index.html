@@ -5,8 +5,9 @@
 <meta charset="utf-8">
 <title>도와줘요 화면</title>
 <script src='../../js/jquery-1.11.1.js'></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYHnZoqi-TUtB2cduIc4NcOZ5MkyZ1R7s&sensor=false"
-	      type="text/javascript"></script>
+<script src='../../js/bootstrap.js'></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYHnZoqi-TUtB2cduIc4NcOZ5MkyZ1R7s&sensor=false"
+	      type="text/javascript"></script> -->
 <script src='../../js/iframeSize.js'></script>
 <link rel='stylesheet' href='../../css/bootstrap.css'>
 <link rel='stylesheet' href='../../css/cpsmarket.css'>
@@ -74,11 +75,16 @@
 </head>
 <body onload="loadHlMap()">
 	<div id='hl-body'>
-		<div id='hl-urgent' style="display:none;">여기에는 설정된 위치를 기반으로 해서, 긴급 속보나 알림, 대피, 사망사고 등을 알려줄 예정이야.(기상청 API, 공공데이터포털 : 재난안전-> 국민행동요령)</div>
+		<div id='hl-urgent' style="display: none;">여기에는 설정된 위치를 기반으로 해서,
+			긴급 속보나 알림, 대피, 사망사고 등을 알려줄 예정이야.(기상청 API, 공공데이터포털 : 재난안전-> 국민행동요령)</div>
 		<div id='hl-local-box'>
 			<div id="hlmap-canvas"></div>
 			<p id='countHl'></p>
-			<div id='hl-local-count'><p>주변에 <span id='hl-count-no'>3</span> 건의 도움요청이 있네요!</p></div> 
+			<div id='hl-local-count'>
+				<p>
+					주변에 <span id='hl-count-no'>3</span> 건의 도움요청이 있네요!
+				</p>
+			</div>
 		</div>
 		<div id='hl-request-box'>
 			<table id='hl-hrequest-table' class='table table-hover'>
@@ -94,7 +100,8 @@
 				<!-- 더미 데이터 -->
 				<tr>
 					<td class='hno'>1</td>
-					<td data-eno='' class='htitle'>dummy dummy dummy</td>
+					<td data-eno='1' class='htitle'><a onclick="loadThisContent()">dummy
+							dummy dummy</a></td>
 					<td data-uid='' class='hwriter'>dummy</td>
 					<td class='hdate'>15.03.21</td>
 					<td class='hsolved'>해결됨</td>
@@ -102,7 +109,7 @@
 				</tr>
 				<tr>
 					<td class='hno'>1</td>
-					<td data-eno='' class='htitle'>dummy dummy dummy</td>
+					<td data-eno='2' class='htitle'><a>dummy dummy dummy</a></td>
 					<td data-uid='' class='hwriter'>dummy</td>
 					<td class='hdate'>15.03.21</td>
 					<td class='hsolved'>해결됨</td>
@@ -110,7 +117,7 @@
 				</tr>
 				<tr>
 					<td class='hno'>1</td>
-					<td data-eno='' class='htitle'>dummy dummy dummy</td>
+					<td data-eno='3' class='htitle'><a>dummy dummy dummy</a></td>
 					<td data-uid='' class='hwriter'>dummy</td>
 					<td class='hdate'>15.03.21</td>
 					<td class='hsolved'>해결됨</td>
@@ -118,7 +125,7 @@
 				</tr>
 				<tr>
 					<td class='hno'>1</td>
-					<td data-eno='' class='htitle'>dummy dummy dummy</td>
+					<td data-eno='4' class='htitle'><a>dummy dummy dummy</a></td>
 					<td data-uid='' class='hwriter'>dummy</td>
 					<td class='hdate'>15.03.21</td>
 					<td class='hsolved'>해결됨</td>
@@ -126,7 +133,7 @@
 				</tr>
 				<tr>
 					<td class='hno'>1</td>
-					<td data-eno='' class='htitle'>dummy dummy dummy</td>
+					<td data-eno='5' class='htitle'><a>dummy dummy dummy</a></td>
 					<td data-uid='' class='hwriter'>dummy</td>
 					<td class='hdate'>15.03.21</td>
 					<td class='hsolved'>해결됨</td>
@@ -137,10 +144,26 @@
 			</table>
 		</div>
 	</div>
+	<div id='help-content-box'>
+		<div id='esc-help-box' onclick="escapeBox()"></div>
+		<div id='help-box-head'>
+			<div id='hl-usr-photo'>
+			</div>
+			<div>
+			</div>
+		</div>
+		<hr>
+		<div id='help-box-body'>
+		</div>
+	</div>
 </body>
 <script>
-$('.htitle').click(function(){
-	alert("제목 클릭됨");
-});
+function loadThisContent() {
+	$('#help-content-box').css('display','');
+	location.href="#help-content-box";
+};
+function escapeBox() {
+	$('#help-content-box').css('display','none');
+};
 </script>
 </html>

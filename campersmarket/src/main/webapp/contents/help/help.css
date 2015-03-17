@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-#hl-body { border: 1px solid green; height: 700px; }
+#hl-body { /* border: 1px solid green; */ height: 700px; }
 #hl-urgent { font-weight:bolder; width: 100%; height: 1.8em; margin: 0 auto; }
 #hlmap-canvas { width: 100%; height: 30em; margin: 0px; padding: 0px; }
 #hl-local-box { /* border: 1px solid green; */ margin: 0 auto; width: 100%; }
@@ -14,6 +14,62 @@
 	font-weight: bolder;
 }
 
-.htitle , .hwriter {
-	cursor: pointer;
+#help-content-box {
+  border: 4px solid #0D336A;
+  border-radius: 10px;
+  width: 90%;
+  height: 45em;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  background-color: white;
 }
+
+#esc-help-box {
+	z-index: 9999;
+	cursor:pointer;
+	position:absolute;
+  height:32px;
+  width:30px;
+  margin:5px;
+  top:0;
+  right:0;
+  background-image:url("../../imagesource/m3/black-x-hi.png");
+}
+
+#help-box-head {
+	z-index: 2;
+	border : 1px solid green;
+	position: relative;
+	width: 100%;
+	height: 15%;
+	margin-top:1em;
+}
+
+#hl-usr-photo {
+	border: 1px solid blue;
+	height: auto;
+	width:10%;
+	margin-left: 30px;
+}
+
+#hl-usr-photo::before {
+	content: "";
+	display:block;
+	padding-top:100%;	
+}
+
+#help-box-body {
+	border:1px solid red;
+	width: 100%;
+	height: 50%;
+}
+
+
+
+
+
+
+
+
+
