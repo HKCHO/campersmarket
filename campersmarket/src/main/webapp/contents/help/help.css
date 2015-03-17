@@ -26,7 +26,6 @@
 }
 
 #esc-help-box {
-	z-index: 9999;
 	cursor:pointer;
 	position:absolute;
   height:32px;
@@ -38,7 +37,6 @@
 }
 
 #help-box-head {
-	z-index: 2;
 	border : 1px solid green;
 	position: relative;
 	width: 100%;
@@ -48,21 +46,29 @@
 
 #hl-usr-photo {
 	border: 1px solid blue;
-	height: auto;
-	width:10%;
+	position:inherit;
+	display:inline-block;
+	height:10vw;
+	width:10vw;
 	margin-left: 30px;
 }
 
-#hl-usr-photo::before {
+/* #hl-usr-photo::before {
 	content: "";
 	display:block;
 	padding-top:100%;	
+} */
+
+#hl-usr-intro {
+	border:1px solid green;
+	width: 25%;
 }
 
 #help-box-body {
 	border:1px solid red;
 	width: 100%;
 	height: 50%;
+	display:inline-block;
 }
 
 
