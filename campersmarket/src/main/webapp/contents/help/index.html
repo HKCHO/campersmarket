@@ -37,7 +37,7 @@
 				  usrMarker = new google.maps.Marker({
 				    position : initialLocation,
 				    map : map, 
-				    title : 'Hello World!!'
+				    title : 'dummy marker'
 				  });
 				  
 				 //도와줘요 위치 깃발 test start
@@ -148,7 +148,7 @@
 		<div id='esc-help-box' onclick="escapeBox()"></div>
 		<div id='help-box-head'>
 			<div id='hl-writer-photo'>
-				사용자 사진
+				<img src="usrPicTest.jpg" alt="캠퍼 사진" class="img-circle">
 			</div>
 			<div id='hl-writer-info'>
 				<div id='hl-writer-info-box'>
@@ -166,14 +166,41 @@
 				</div>
 			</div>
 			<div id='hl-content-info'>
-				게시물 정보
+				<div id='hl-content-regdate'>
+				 작성일 : <span id='hl-regdate'>2015-03-29</span>
+				</div>
+				<div id='hl-content-count'>
+				 조회수 : <span id='hl-count'>28</span>
+				</div>
+				<div id='hl-content-recommend'>
+				 추천수 : <span id='hl-rec'>28</span>
+				</div>
 			</div>
 			<div id='hl-writer-menu'>
-				asdadsa
+				<div>
+					<a id='hl-content-edit' onclick='hlEdit()'>수정하기</a>
+				</div>
+				<div>
+					<a id='hl-content-delete' onclick='hlDelete()'>삭제하기</a>
+				</div>
 			</div>
 		</div>
 		<hr>
 		<div id='help-box-body'>
+			컨텐츠 내용 삽입
+		</div>
+		<div id='hl-reply-container' class='r-c-fluid'>
+			<div class='r-info'>
+				<h5 class='r-h-text'>답변</h5>
+				<span>"("")"</span>
+			</div>
+			<ul>
+			</ul>
+			ul과 li를 활용해서 만들 예정
+		</div>
+		<div id='hl-btn-container'>
+			<button type="button" class="btn btn-danger" onclick="escapeBox()">닫기</button>
+			<button type="button" class="btn btn-info" onclick="backToList()">목록</button>
 		</div>
 	</div>
 </body>
@@ -185,5 +212,15 @@ function loadThisContent() {
 function escapeBox() {
 	$('#help-content-box').css('display','none');
 };
+function backToList() {
+	escapeBox();
+	location.href="#hl-request-box";
+}
+function hlEdit() {
+	alert('수정버튼 클릭');
+}
+function hlDelete() {
+	prompt('삭제하시려면, \'삭제\'를 입력해주세요');
+}
 </script>
 </html>

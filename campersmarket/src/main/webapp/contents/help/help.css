@@ -9,10 +9,7 @@ hr {
 #hlmap-canvas { width: 100%; height: 30em; margin: 0px; padding: 0px; }
 #hl-local-box { /* border: 1px solid green; */ margin: 0 auto; width: 100%; }
 #hl-request-box { /* border: 1px solid blue; */ margin: 0 auto; width: 100%; /* height: 300px; */ }
-
-#hl-local-count {
-	color : black;
-}
+#hl-local-count {	color : black; }
 #hl-count-no {
 	color : red;
 	font-weight: bolder;
@@ -30,6 +27,7 @@ hr {
 }
 
 #esc-help-box {
+	z-index:1;
 	cursor:pointer;
 	position:absolute;
   height:32px;
@@ -46,9 +44,10 @@ hr {
 	width: 100%;
 	height: 15%;
 	margin-top:1em;
+	font-weight: bold;
 }
 
-#help-box-head div{
+#help-box-head div {
 	padding: 0 4px;
 }
 #help-box-head > div {
@@ -56,41 +55,104 @@ hr {
 }
 
 #hl-writer-photo {
-	border: 1px solid blue;
 	position:inherit;
 	display:inline-block;
 	height:100%;
-	width:10vw; /* width를 height에 고정 (ration 1:1) */
+	width:10vw;
 	margin-left: 30px;
 }
 
+#hl-writer-photo > img {
+	max-height: 100%;
+	max-width: 100%;
+	position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 #hl-writer-info {
 	display:inline-block;
-	border:1px solid green;
 	height:100%;
 	width: 30%;
 }
 
+#hl-writer-nick, #hl-writer-name {
+	cursor: pointer;
+}
+
+#hl-writer-info > div,#hl-content-info > div,
+#hl-writer-menu > div  {
+	margin-bottom:0.7em;
+	height:1.2em;
+}
+#hl-writer-info > div:first-child, #hl-content-info > div:first-child,
+#hl-writer-menu > div:first-child{
+	margin-top:0.7em;
+}
+
 #hl-content-info {
 	display:inline-block;
-	border:1px solid pink;
 	height:100%;
 	width: 25%;
+	font-weight: normal !important;
+	font-size:small;
 }
-
+#hl-content-info div {
+	height: 1.2em;
+	padding: 0 4px;
+}
 #hl-writer-menu {
+	cursor:pointer;
 	display:inline-block;
-	border:1px solid gray;
 	height:100%;
 	width: 10%;
+	margin-left: 4%;
+	font-size:x-small;
 }
-
+#hl-writer-menu a {
+	text-decoration:none !important;
+}
 #help-box-body {
 	border:1px solid red;
 	width: 100%;
 	height: 50%;
 	display:inline-block;
 }
+/* reply start */
+.r-c-fluid {
+	width: 100% !important;
+}
+.r-info span {
+	display: inline-block;
+  margin: 1px 0 0 4px;
+  color: #fd2100;
+  font-family: tahoma;
+  font-size: 10px;
+  font-weight: normal;
+  letter-spacing: 0;
+}
+
+#hl-reply-container {
+	width:85%;
+	margin:0 auto;
+	border: 1px solid silver;
+}
+
+#hl-reply-container * {
+	padding-left : 0;
+}
+
+/* reply end */
+#hl-btn-container {
+	margin-top:5px;
+}
+#hl-btn-container > button {
+	float:right;
+	margin: 0 5px;
+}
+
 
 
 
