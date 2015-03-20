@@ -1,11 +1,20 @@
 /**
  * campersmarket의 iframe 높이를 자동적으로 설정해줍니다.
  * iframe 내부 html에 해당 코드를 삽입합니다.
+ * 
+ * 2015-2-15 조현권
+ * 
+ * issue (15-03-20) :  현재 윈도우 온로드 펑션에 setFrameSize(ElementName)을 삽입해 놓았는데
+ *      						  campersmarket은 iframe이 메뉴별로 로딩되는 반면 최초 윈도우 온로드는 한번만 실행되어
+ *      						  최초 페이지의 height로 고정됨.
+ *        
  */
 
-function setFrameSize(name){
-	var innerBody = document.body; //iframe 내부의 <body>
-	var thisFrame = $(parent.document.all(name)); //현재 html의 상위 <iframe>
+var innerBody, thisFrame;
+
+function setFrameSize(ElementName){
+	innerBody = document.body; //iframe 내부의 <body>
+	thisFrame = $(parent.document.all(ElementName)); //현재 html의 상위 <iframe>
 	var min_height = 460; //iframe의 최소높이, 픽셀값
 	var i_height = innerBody.scrollHeight + (innerBody.offsetHeight-innerBody.clientHeight);
 	//innerBody의 (scrollHeight) 내용의 높이에 (offsetHeight - clientHeignt)해당 엘리먼트의 margin값을 더하면 총 높이가 나온다.
