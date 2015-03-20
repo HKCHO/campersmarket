@@ -112,6 +112,9 @@ hr {
 #hl-writer-menu a {
 	text-decoration:none !important;
 }
+#hl-writer-menu a:hover {
+	font-weight: bold;
+}
 #help-box-body {
 	/* border:1px solid red; */
 	width: 100%;
@@ -191,6 +194,8 @@ hr {
 	margin-bottom:5px;
 }
 #r-text {
+	border-radius:5px;
+	border-color:silver;
 	padding: 4px;
 	resize:none;
 }

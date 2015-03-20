@@ -302,4 +302,10 @@ function hlDelete() {
 	prompt('삭제하시려면, \'삭제\'를 입력해주세요');
 }
 </script>
+<script>
+$(window).bind('beforeunload', function(){
+	
+	return false;
+});
+</script>
 </html>
