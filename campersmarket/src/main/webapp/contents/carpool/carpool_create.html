@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src='../../js/bootstrap.js'></script>
+<link rel='stylesheet' href='../../css/bootstrap.css'>
+<title>카풀 등록</title>
+<style>
+#header{
+  border: 1px solid red;
+  color: #4fbdc4;
+  border-bottom: 3px solid #4fbdc4;
+
+}
+
+#cp_list {
+ border:1px solid red;
+ 
+}
+
+.form-control{
+ width: 50%; !important
+}
+
+#carpool{
+ font-size: 10pt; !important
+}
+</style>
+</head>
+<body>
+<div id='header'>
+ <h1>카풀등록</h1>
+</div>
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">출발 </label>
+    <input type="text" class="form-control" placeholder="출발지를 정하세요">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">도착 </label>
+    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="도착지를 정하세요">
+  </div>
+  
+  <div class="form-group">
+  <label for="exampleInputPassword1">유형</label><br>
+  <select name="carpool" id='carpool'>
+    <option value="출퇴근">출퇴근</option>
+    <option value="통학">통학</option>
+    <option value="여행">여행</option>
+    <option value="드라이브">드라이브</option>
+    <option value="비즈니스">비즈니스</option>
+    <option value="기타커풀">기타카풀</option>
+</select>
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputPassword1">자리</label><br>
+    <select name="carpool">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+</select>
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputPassword1">금액  </label>
+    <div class="form-group">
+    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+    <div class="input-group">
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="금액">
+      <div class="input-group-addon">원</div>
+    </div>
+  </div>
+  </div>
+  <button type="submit" class="btn btn-default">등록</button>
+</form>
+</body>
+</html>
