@@ -10,6 +10,15 @@
 <link rel='stylesheet' href='css/cpsmarket.css'>
 <link rel='stylesheet' href='index.css'>
 <style>
+/* 코딩용 */
+#devTaskNote {
+	border : 1px solid pink;
+	position : fixed;
+	bottom:0;
+	left:0;
+	background-color: white;
+}
+/* 코딩용 end */
 #wing-menu-l , #wing-menu-r {
  border : 1px solid #A6A6A6;
  border-radius : 5px;
@@ -98,6 +107,16 @@
 		<p>라이트윙 - 지용근</p>
 		<p>내가 봤던 물건들 리스트가 올라온다. 와꾸 짜놔라</p>
 	</div>
+	<!-- 코딩후 삭제할 것 -->
+	<div id='devTaskNote'>
+		<h3>필요한 작업 목록입니다.</h3>
+		<ul>
+		 <li>iframe[id='cm-content']로딩할 때마다 iframe 내부 html의 offScrollHeight를 계산하여 iframe의 height를 조정하는 script문이 필요</li>
+		 <li>단축키나 아이콘에 의한 새로고침 이벤트가 발생할 때, iframe내부 화면의 상대주소를 저장하여 내부 아이프레임의 값이 그대로 나오게 할 것. ref)http://travelfacebook.tistory.com/m/post/1385</li>
+		</ul>
+		<button onclick='noteClose()'>닫기</button>
+	</div>
+	<!-- 코딩후 삭제할 것 -->
 </body>
 <script>
 $(function() {
@@ -120,7 +139,14 @@ function search() {
 function login() {
 	$('#cm-content').attr('src','forms/login');
 }
-
+/*
+ * 새로고침 이벤트 막기
+ * 2015-03-20 조현권
+ * F5, ctrl + F5, ctrl + r 새로고침 막음으로써 iframe의 소스가 바뀌는 것을 제어합니다.
+ */
+ $(window).keydown(function (e){
+   if (e.metaKey) alert("control");
+});
 /* 화면 코딩용 버튼입니다. */
 $('#cm-logo').click(function(){
 	if($('#nolog').css('display') == 'none'){
@@ -134,7 +160,12 @@ $('#cm-logo').click(function(){
 /* 코딩 후 삭제해 주세요 */
 
 $('#myInfo').click(function(){
-})
-	
+});
+
+//코딩후 삭제해주세요
+function noteClose(){
+	$('#devTaskNote').css('display','none');
+};
+
 </script>
 </html>
