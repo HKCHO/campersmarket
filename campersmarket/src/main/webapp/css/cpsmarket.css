@@ -17,3 +17,8 @@ input { color:#827773; width: 80%; height: 45px; border: 2px solid #0D336A; bord
 .btn-cm:hover { color:#946FA8; }
 
 .btn-cm-default { background-color: white; color: #0E346B; border: 2px solid #0D336A; border-radius: 10px; }
+
+a {
+	cursor: pointer !important;
+	text-decoration: none;
+}
