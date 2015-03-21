@@ -31,8 +31,8 @@
 	display:inline-block;
 	border: 1px solid silver;
 	border-radius:5px;
-	width:49.607%;
-	height:49.3%;
+	width:243.047px;
+	height:146px;
 	cursor: pointer;
 }
 #pr-nav-content {
@@ -42,11 +42,12 @@
 #pr-nav-content img {
 	z-index:1;
 	width: 100%;
-	border-radius: 2.5px 0 0 0;
+	height: 100%;
+  border-radius: 2.5px 0 0 2.5px;
 }
 #prmap-canvas{
 	display:inline-block;
-	width:50%;
+	width:504px;
 	height:300px;
 	float: left;
 }
@@ -56,26 +57,31 @@
 	width:494px;
 	height:300px;
 	float: left;
-	overflow:scroll;
 }
 .pr-goods-photo, .pr-goods-info {
+	height:100%;
+}
+.pr-upper {
 	float:left;
 	width:49.8%;
-	height:100%;
+}
+.info-upper {
+	float:left;
+	width:49.8%;
+	margin: 5% 0;
+}
+info-upper > div:first-child {
+	margin: 5% 0 10% 0;
+}
+.info-upper > div:nth-child(2) {
+	height:48% !important;
+	font-size:small;
 }
 .pr-goods-info > div {
 	width:100%;
-	margin: 5% 0;
 	padding: 0 4px;
 	overflow:hidden;
 	text-overflow:ellipsis;
-}
-.pr-goods-info > div:first-child {
-	margin: 5% 0 10% 0;
-}
-.pr-goods-info > div:nth-child(2) {
-	height:48% !important;
-	font-size:small;
 }
 .pr-nick {
 	font-size: medium;
@@ -93,7 +99,6 @@
 }
 /* 하단 컨텐츠 CSS */
 #pr-goods-showwindow {
-	border:1px solid red;
 	width:100%;
 }
 .pr-ul, .pr-li {
@@ -110,9 +115,36 @@
 .pr-goods-container {
 	border: 1px solid silver;
 	border-radius: 10px;
-	width:24%;
-	height: 250px;
+	width:240px;
+	height: 300px;
 	float:left;
 	display:inline;
 	margin:0 0.5% 1% 0.5% ;
+}
+.pr-goods-container:hover {
+	border-color: red;
+	cursor:pointer;
+}
+.photo-under {
+	width:100% !important;
+	height:75% !important;
+}
+.info-under{
+	
+}
+.goods-photo {
+	width:100%;
+	height:100%;
+	border-radius: 9px 9px 0 0;
+}
+.pr-goods-info {
+	display:inline;
+}
+.big-box {
+	display: inline-block;
+  width: 100%;
+  height: 75px;
+}
+.big-box > div {
+	margin: 3px 0;
 }
