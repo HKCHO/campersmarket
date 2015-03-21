@@ -89,7 +89,10 @@ function loadPrMap() {
 				<p>&lt; 무슨무슨 캠핑장 ></p> : <p>주변에 <span>'6'</span>개의 물건이 새 주인을 기다립니다.</p>
 			</div>
 			<div id='pr-nav-content'>
+			
 				<div id='prmap-canvas'></div>
+				
+				<!-- 이 부분에는 얼마 남지 않은 물건들이 나타납니다. -->
 				<div id='pr-nav-side'>
 					<div class='pr-side-content' onmouseover="$(this).addClass('nav_side_hover');" onmouseleave="$(this).removeClass('nav_side_hover');" onmouseout="$(this).removeClass('nav_side_hover');">
 						<div class='pr-goods-photo'>
@@ -103,10 +106,11 @@ function loadPrMap() {
 								<span class='pr-title'>종이컵 드려요, 남은거 가져가세요.</span>
 							</div>
 							<div>
-								<span class='pr-expire'>1시간 뒤</span>
+								<span class='pr-expire'>1분 뒤</span>
 							</div>
 						</div>
 					</div>
+					
 					<div class='pr-side-content' onmouseover="$(this).addClass('nav_side_hover');" onmouseleave="$(this).removeClass('nav_side_hover');" onmouseout="$(this).removeClass('nav_side_hover');">
 						<div class='pr-goods-photo'>
 							<img src="testPicMeat.jpg" alt="testPicMeat.jpg">
@@ -123,15 +127,44 @@ function loadPrMap() {
 							</div>
 						</div>
 					</div>
+					
 					<div class='pr-side-content' onmouseover="$(this).addClass('nav_side_hover');" onmouseleave="$(this).removeClass('nav_side_hover');" onmouseout="$(this).removeClass('nav_side_hover');"></div>
+					
 					<div class='pr-side-content' onmouseover="$(this).addClass('nav_side_hover');" onmouseleave="$(this).removeClass('nav_side_hover');" onmouseout="$(this).removeClass('nav_side_hover');"></div>
+					
 				</div>
+				<!-- pr-nav-side end -->
 			</div>
 		</div>
+		
 		<hr>
+		
 		<div id='pr-goods-showwindow'>
-			<div id='pr-arrange-box'></div>
-			<div id='pr-good-box'></div>
+			<ul class='pr-goods-list pr-ul'>
+				<li class='pr-goods-data pr-li'>
+					<div class='pr-goods-container'>
+					</div>
+				</li>
+				
+				<li class='pr-goods-data pr-li'>
+					<div class='pr-goods-container'></div>
+				</li>
+				
+				<li class='pr-goods-data pr-li'>
+					<div class='pr-goods-container'></div>
+				</li>
+				
+				<li class='pr-goods-data pr-li'>
+					<div class='pr-goods-container'></div>
+				</li>
+				
+				<li class='pr-goods-data pr-li'>
+					<div class='pr-goods-container'></div>
+				</li>
+			</ul>
+			<span class='clearfix'></span>
+			<!-- 부트스트랩에서 제공하는 clearfix class는 상위객체가 float된 자식객체를 끌어안을(include) 수 있도록 도와준다. -->
+			<!-- ref : http://html5hub.com/after-float/ -->
 		</div>
 	</div>
 </body>
