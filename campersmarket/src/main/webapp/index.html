@@ -6,6 +6,7 @@
 <title>캠퍼스 마켓 :: 캠퍼스 마켓과 함께 즐거운 캠핑 되세요</title>
 <script src='js/jquery-1.11.1.js'></script>
 <script src='js/bootstrap.js'></script>
+<script src='js/campersmarket.js'></script>
 <link rel='stylesheet' href='css/bootstrap.css'>
 <link rel='stylesheet' href='css/cpsmarket.css'>
 <link rel='stylesheet' href='index.css'>
@@ -139,14 +140,7 @@ function search() {
 function login() {
 	$('#cm-content').attr('src','forms/login');
 }
-/*
- * 새로고침 이벤트 막기
- * 2015-03-20 조현권
- * F5, ctrl + F5, ctrl + r 새로고침 막음으로써 iframe의 소스가 바뀌는 것을 제어합니다.
- */
- $(window).keydown(function (e){
-   if (e.metaKey) alert("control");
-});
+
 /* 화면 코딩용 버튼입니다. */
 $('#cm-logo').click(function(){
 	if($('#nolog').css('display') == 'none'){
