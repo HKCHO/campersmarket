@@ -6,23 +6,133 @@
 <title>드려요 화면</title>
 <script src='../../js/jquery-1.11.1.js'></script>
 <script src='../../js/bootstrap.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYHnZoqi-TUtB2cduIc4NcOZ5MkyZ1R7s&sensor=false"
+	      type="text/javascript"></script>
+<link rel='stylesheet' href='present.css'>
 <link rel='stylesheet' href='../../css/bootstrap.css'>
 <link rel='stylesheet' href='../../css/cpsmarket.css'>
 <style>
 body {
 	height: 80vh;
 }
-#pr-body { border: 1px solid blue; height: 773.984px; }
+#pr-body { 
+	border-bottom: 1px solid blue;
+	padding-bottom: 50px;
+	margin-top: 2px; 
+}
+
 </style>
+<script>
+var initialLocation = new google.maps.LatLng(37.5181804 , 126.90554990000001); // 최초 맵의 위치를 신림역으로 표현합니다.
+var browserSupportFlag =  new Boolean();
+var presentFlag = new google.maps.MarkerImage('../../imagesource/m2/urgent.png');
+var map, usrMarker;
+
+function loadPrMap() {
+	var mapOptions = {
+	    zoom : 17, // 확대 레벨
+	    disableDefaultUI : false, // 표준 UI를 사용하지 않습니다.
+	    scrollwheel : false   	  // 맵 위에서 마우스 스크롤을 통한 zoom 기능을 제한합니다
+	  };
+
+	  map = new google.maps.Map(document.getElementById('prmap-canvas'), mapOptions);
+
+	  if (navigator.geolocation) { //HTML5에서 제공하는 geolocation함수가 브라우저에서 작동할 경우.
+		  browserSupportFlag = true; // 현재 브라우저에서 'geolocation'을 지원함을 알림.
+		  navigator.geolocation.getCurrentPosition(function(position) { //geolocation을 통해 현 위치정보를 가져옴.
+			  initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); //현 위치정보(position)에서 위도와 경도를 추출.
+			  map.setCenter(initialLocation);
+			  
+			  usrMarker = new google.maps.Marker({
+			    position : initialLocation,
+			    map : map, 
+			    title : 'dummy marker'
+			  });
+			  
+			 //드려요 위치 깃발 test start
+			  for (var i = 0; i< 3; i++) {
+					new google.maps.Marker({
+			    position : new google.maps.LatLng(initialLocation.lat() - i * 0.0001 + 0.0001,
+			        initialLocation.lng() - i/1000),
+			    map : map,
+			    icon: presentFlag,
+			    title : 'Present Flag' + i
+			  });
+		  }
+			//드려요 위치 깃발 test end
+ 			//아이템 사진, 물건설명 등 
+	  }, function() { //geolocation이 로딩 실패.
+		  handleNoGeolocation(browserSupportFlag);
+	  });
+  } else {
+	  browserSupportFlag = false; // client의 브라우저에서 geolocation 함수를 지원하지 않을 경우. 브라우저지원표지를 false로 설정
+	  handleNoGeolocation(browserSupportFlag);
+  }// geolocation end
+
+  function handleNoGeolocation(errorFlag) { //geolocation의 지원 여부를 알려주는 내장함수(inner function).
+	  if (errorFlag == true) {
+		  alert("위치 서비스 로딩 실패");
+	  } else {
+		  alert("위치정보를 지원하지 않는 브라우저입니다. 위치를 '서울 신림역'으로 설정합니다.");
+	  }
+
+	  map.setCenter(initialLocation);
+
+  }//function handleNoGeolocation(errorFlag) end
+}//loadHlMap() end
+</script>
 </head>
-<body>
+<body onload='loadPrMap()'>
 	<div id='pr-body'>
-	 <h1>여기는 지용근님이 맡았으면 좋겠다</h1>
-	 <h3>전에 너가 말해준 쿠차 UI와 UX를 사용했으면 좋겠엉</h3>
-	 <h4>이 페이지의 모든 인터페이스는 너가 설계를 하고, 부탁하는건 그리드 방식하고 리스트 방식 둘다 있었으면 좋겠다는거야</h4>
-	 <br>
-	 <br>
-	 <h1>일 때문에 바쁜거면 어쩔 수 없고^^ 데헷;</h1>
+		<div id='pr-nav-section'>
+			<div id='pr-nav-notice'>
+				<p>&lt; 무슨무슨 캠핑장 ></p> : <p>주변에 <span>'6'</span>개의 물건이 새 주인을 기다립니다.</p>
+			</div>
+			<div id='pr-nav-content'>
+				<div id='prmap-canvas'></div>
+				<div id='pr-nav-side'>
+					<div class='pr-side-content' onmouseover="$(this).addClass('nav_side_hover');" onmouseleave="$(this).removeClass('nav_side_hover');" onmouseout="$(this).removeClass('nav_side_hover');">
+						<div class='pr-goods-photo'>
+							<img src="testPicCup.jpg" alt="testPicCup.jpg">
+						</div>
+						<div class='pr-goods-info'>
+							<div>
+								<span class='pr-lev'>Lv4</span> <span class='pr-nick'>니키 마린</span>
+							</div>
+							<div>
+								<span class='pr-title'>종이컵 드려요, 남은거 가져가세요.</span>
+							</div>
+							<div>
+								<span class='pr-expire'>1시간 뒤</span>
+							</div>
+						</div>
+					</div>
+					<div class='pr-side-content' onmouseover="$(this).addClass('nav_side_hover');" onmouseleave="$(this).removeClass('nav_side_hover');" onmouseout="$(this).removeClass('nav_side_hover');">
+						<div class='pr-goods-photo'>
+							<img src="testPicMeat.jpg" alt="testPicMeat.jpg">
+						</div>
+						<div class='pr-goods-info'>
+							<div>
+								<span class='pr-lev'>Lv11</span> <span class='pr-nick'>채식주의</span>
+							</div>
+							<div>
+								<span class='pr-title'> 살치살이 남아부렀어요 </span>
+							</div>
+							<div>
+								<span class='pr-expire'>5분 뒤</span>
+							</div>
+						</div>
+					</div>
+					<div class='pr-side-content' onmouseover="$(this).addClass('nav_side_hover');" onmouseleave="$(this).removeClass('nav_side_hover');" onmouseout="$(this).removeClass('nav_side_hover');"></div>
+					<div class='pr-side-content' onmouseover="$(this).addClass('nav_side_hover');" onmouseleave="$(this).removeClass('nav_side_hover');" onmouseout="$(this).removeClass('nav_side_hover');"></div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div id='pr-goods-showwindow'>
+			<div id='pr-arrange-box'></div>
+			<div id='pr-good-box'></div>
+		</div>
 	</div>
 </body>
 </html>

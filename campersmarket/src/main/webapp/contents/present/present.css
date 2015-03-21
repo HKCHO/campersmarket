@@ -1,0 +1,97 @@
+@CHARSET "UTF-8";
+/**
+ * 도와줘요 화면 CSS
+ * 2015-03-21 조현권 
+ */
+ 
+#pr-nav-section {
+	width:100%;
+}
+#pr-nav-notice {
+	width:100%;
+	height:30px;
+	line-height:30px;
+	padding:0 4px;
+}
+#pr-nav-notice > p {
+	display: inline-block !important;
+	margin:0 !important;
+}
+#pr-nav-notice > p:first-child {
+	font-weight:900;
+	font-size:medium;
+	margin:0 !important;
+}
+#pr-nav-notice span {
+	color: red;
+	font-weight: bold;
+}
+#pr-nav-content {
+	width:100%;
+	height:300px;
+}
+#pr-nav-content img {
+	width: 100%;
+}
+#prmap-canvas{
+	display:inline-block;
+	width:50%;
+	height:300px;
+	float: left;
+}
+#pr-nav-side{
+	display:inline-block;
+	margin-left: 7px;
+	width:494px;
+	height:300px;
+	float: left;
+	overflow:scroll;
+}
+#pr-goods-showwindow {
+	border:1px solid red;
+	margin-top:5px;
+	width:100%;
+	height: 400px;
+}
+
+.pr-side-content {
+	display:inline-block;
+	border: 1px solid silver;
+	border-radius:5px;
+	width:49.607%;
+	height:49.3%;
+	cursor: pointer;
+}
+.pr-goods-photo, .pr-goods-info {
+	float:left;
+	width:49.8%;
+	height:100%;
+}
+.pr-goods-info > div {
+	width:100%;
+	margin: 5% 0;
+	padding: 0 4px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.pr-goods-info > div:first-child {
+	margin: 5% 0 10% 0;
+}
+.pr-goods-info > div:nth-child(2) {
+	height:48% !important;
+	font-size:small;
+}
+.pr-nick {
+	font-size: medium;
+	font-weight:900;
+}
+.pr-title {
+	height:48%;
+}
+.pr-expire {
+	font-size: x-small;
+	color:silver;
+}
+.nav_side_hover {
+	border-width: 3px;
+}

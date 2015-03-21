@@ -145,7 +145,7 @@
 			</table>
 		</div>
 	</div>
-	<div id='help-content-box'>
+	<div id='help-content-box' style="display:none;">
 		<div id='esc-help-box' onclick="escapeBox()"></div>
 		<div id='help-box-head'>
 			<div id='hl-writer-photo'>
@@ -306,13 +306,13 @@ function hlDelete() {
 <script>
 /* $(window).bind('beforeunload', function(){
 	return false;
-}); */
-$(window).bind('keypress', function(e) {
+}); */ //페이지가 언로딩 되기 전, 확인 창을 띄움.
+/* $(window).bind('keypress', function(e) {
 	if(e.keyCode==13){
 		console.log('enter');
 	}
 	console.log(e.keyCode);
 	console.log(e.which);
-});
+}); */ //엔터키가 눌리는 것을 확인.
 </script>
 </html>
