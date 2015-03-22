@@ -124,8 +124,7 @@ $(function() {
 });
 
 $('.menus').click(function(){
-	console.log($(this).data("cmenu"));
-	console.log($(this).children().next().html());
+	console.log($(this).children().next().html() + " 화면으로 이동.");
 	var menuAddress = $(this).data("cmenu");
 	
 	$('#cm-content').attr('src','contents/' + menuAddress);

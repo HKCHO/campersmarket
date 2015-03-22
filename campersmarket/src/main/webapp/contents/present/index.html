@@ -6,6 +6,7 @@
 <title>드려요 화면</title>
 <script src='../../js/jquery-1.11.1.js'></script>
 <script src='../../js/bootstrap.js'></script>
+<script src='../../js/campersmarket.js'></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYHnZoqi-TUtB2cduIc4NcOZ5MkyZ1R7s&sensor=false"
 	      type="text/javascript"></script>
 <link rel='stylesheet' href='present.css'>
@@ -23,10 +24,12 @@ body {
 
 </style>
 <script>
-var initialLocation = new google.maps.LatLng(37.5181804 , 126.90554990000001); // 최초 맵의 위치를 신림역으로 표현합니다.
+var myLocation = new google.maps.LatLng(37.5181804 , 126.90554990000001); // 최초 맵의 위치를 신림역으로 표현합니다.
 var browserSupportFlag =  new Boolean();
 var presentFlag = new google.maps.MarkerImage('../../imagesource/m2/urgent.png');
 var map, usrMarker;
+var tempPos;
+var testFlag;
 
 function loadPrMap() {
 	var mapOptions = {
@@ -36,50 +39,108 @@ function loadPrMap() {
 	  };
 
 	  map = new google.maps.Map(document.getElementById('prmap-canvas'), mapOptions);
-
+		
+	//유저 현재위치 마커 (geolocation이 작동 할 경우.)
+	  usrMarker = new google.maps.Marker({
+	    position : myLocation,
+	    map : map, 
+	    draggable: true,  // 마커 drag가능 여부 설정, default값은 false
+	    zIndex: 900,
+	    //icon: new google.maps.MarkerImage('커스텀_마터_URL'), 커스텀 마커 이미지 세팅. 
+	    title : '내 위치'
+	  });
+	  
 	  if (navigator.geolocation) { //HTML5에서 제공하는 geolocation함수가 브라우저에서 작동할 경우.
 		  browserSupportFlag = true; // 현재 브라우저에서 'geolocation'을 지원함을 알림.
 		  navigator.geolocation.getCurrentPosition(function(position) { //geolocation을 통해 현 위치정보를 가져옴.
-			  initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); //현 위치정보(position)에서 위도와 경도를 추출.
-			  map.setCenter(initialLocation);
+		  	
+			  myLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); //현 위치정보(position)에서 위도와 경도를 추출.
 			  
-			  usrMarker = new google.maps.Marker({
-			    position : initialLocation,
-			    map : map, 
-			    title : 'dummy marker'
-			  });
+			  map.setCenter(myLocation);
+			  usrMarker.setPosition(myLocation);
 			  
-			 //드려요 위치 깃발 test start
-			  for (var i = 0; i< 3; i++) {
-					new google.maps.Marker({
-			    position : new google.maps.LatLng(initialLocation.lat() - i * 0.0001 + 0.0001,
-			        initialLocation.lng() - i/1000),
-			    map : map,
-			    icon: presentFlag,
-			    title : 'Present Flag' + i
-			  });
-		  }
-			//드려요 위치 깃발 test end
- 			//아이템 사진, 물건설명 등 
-	  }, function() { //geolocation이 로딩 실패.
-		  handleNoGeolocation(browserSupportFlag);
+			  testFlag= new Array();
+			  
+				//test flag start
+				for(var i=0; i < 3; i++){
+					var testSource = "testFlag" + i;
+					var ts = testSource.toString();
+					var x = -1;
+					var y = i+1;
+					
+					testFlag[i] = new google.maps.Marker({
+						position : new google.maps.LatLng(
+																myLocation.lat() + (Math.random() * 0.001 * Math.pow(x,y)) , 
+																myLocation.lng() + (Math.random() * 0.001 * Math.pow(x,y))
+															),
+						map : map,
+						icon : presentFlag,
+						attribution: {
+				      source: ts,
+				      //webUrl: 'https://developers.google.com/maps/' 샘플.
+				    },
+						title : ts
+					});
+					
+				}
+				
+				//테스트 : 테스트 플래그 마커 클릭시 발생되는 이벤트
+				//현재 testFlag배열은 지역변수로써 아래 함수를 if문 밖으로 꺼내면 작동하지 않음.
+		  	for (var i=0; i< testFlag.length; i++){
+			  	google.maps.event.addListener(testFlag[i], 'click', function() {
+			  		var cmStuff;
+			  		
+			  		alert(this.getAttribution().source.toString() + '가 클릭 됨. \n 해당 상품으로 포커스 이동하고, 보더속성 변경.');
+			  		cmStuff = '#' + (this.getAttribution().source);
+			  		
+			  		$(cmStuff).css('border-width','2px');
+			  		
+				  });
+		  	} 
+				//test flag end
+				
+			}, function() { //geolocation이 로딩 실패.
+				handleNoGeolocation(browserSupportFlag);
+			});
+		} else {
+			browserSupportFlag = false; // client의 브라우저에서 geolocation 함수를 지원하지 않을 경우. 브라우저지원표지를 false로 설정
+			handleNoGeolocation(browserSupportFlag);
+		}// geolocation end
+
+		function handleNoGeolocation(errorFlag) { //geolocation의 지원 여부를 알려주는 내장함수(inner function).
+			if (errorFlag == true) {
+				alert("위치 서비스 로딩 실패");
+			} else {
+				alert("위치정보를 지원하지 않는 브라우저입니다. 위치를 '서울 신림역'으로 설정합니다.");
+			}
+
+			map.setCenter(myLocation);
+			
+		}//function handleNoGeolocation(errorFlag) end
+		
+		//유저 현재위치 마커 클릭시 발생되는 이벤트
+  	google.maps.event.addListener(usrMarker, 'click', function() {
+  		alert('usrMarker 클릭 됨. \n div태그로 현재 자신의 정보를 띄울 예정.');
 	  });
-  } else {
-	  browserSupportFlag = false; // client의 브라우저에서 geolocation 함수를 지원하지 않을 경우. 브라우저지원표지를 false로 설정
-	  handleNoGeolocation(browserSupportFlag);
-  }// geolocation end
-
-  function handleNoGeolocation(errorFlag) { //geolocation의 지원 여부를 알려주는 내장함수(inner function).
-	  if (errorFlag == true) {
-		  alert("위치 서비스 로딩 실패");
-	  } else {
-		  alert("위치정보를 지원하지 않는 브라우저입니다. 위치를 '서울 신림역'으로 설정합니다.");
-	  }
-
-	  map.setCenter(initialLocation);
-
-  }//function handleNoGeolocation(errorFlag) end
-}//loadHlMap() end
+		
+	  //유저 현재위치 마커 드래그가 시작할 때 발생되는 이벤트.
+	  google.maps.event.addListener(usrMarker, 'dragstart', function() {
+	  	tempPos = usrMarker.getPosition();
+	  	cmtest("이동 시작 좌표 - " + tempPos);
+	  });
+		//유저 현재위치 마커 드래그가 끝날 때 발생되는 이벤트.
+	  google.maps.event.addListener(usrMarker, 'dragend', function() {
+  		if(confirm('<campers market> \n 현 위치로 재설정 하시겠습니까?')){
+  			map.setCenter(usrMarker.getPosition());	
+  			cmtest("이동 종료 좌표 - " + usrMarker.getPosition());
+  			alert('나그네님의 위치정보가 변경되었습니다.');
+  		} else {
+  			map.setCenter(tempPos);
+  			usrMarker.setPosition(tempPos);
+  			cmtest("usrMarker 이동이 취소됨.");
+  		}
+	  });
+	}//loadHlMap() end
 </script>
 </head>
 <body onload='loadPrMap()'>
@@ -157,7 +218,7 @@ function loadPrMap() {
 		<div id='pr-goods-showwindow'>
 			<ul class='pr-goods-list pr-ul'>
 				<li class='pr-goods-data pr-li'>
-					<div class='pr-goods-container'>
+					<div id='testFlag0' class='pr-goods-container'>
 						<div class='pr-goods-photo photo-under'>
 							<img class='goods-photo' src="testPicMeat.jpg" alt="testPicMeat.jpg">
 						</div>
@@ -176,7 +237,7 @@ function loadPrMap() {
 				</li>
 				
 				<li class='pr-goods-data pr-li'>
-					<div class='pr-goods-container'>
+					<div id='testFlag1' class='pr-goods-container'>
 						<div class='pr-goods-photo photo-under'>
 							<img class='goods-photo' src="testPicMeat.jpg" alt="testPicMeat.jpg">
 						</div>
@@ -195,7 +256,7 @@ function loadPrMap() {
 				</li>
 				
 				<li class='pr-goods-data pr-li'>
-					<div class='pr-goods-container'>
+					<div id='testFlag2' class='pr-goods-container'>
 						<div class='pr-goods-photo photo-under'>
 							<img class='goods-photo' src="testPicMeat.jpg" alt="testPicMeat.jpg">
 						</div>
