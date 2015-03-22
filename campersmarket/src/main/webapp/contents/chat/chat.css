@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+.ch-table {
+	width:30% !important;
+}
+.table td {
+	cursor:pointer;
+}
+
+#ch-body { 
+	border-bottom: 1px solid blue; 
+	/* height: 773.984px; */ 
+	margin-top:2px;
+}
+#ch-body h3 {
+	font-weight: bolder;
+}
