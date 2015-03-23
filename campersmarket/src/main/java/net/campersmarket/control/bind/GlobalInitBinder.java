@@ -1,4 +1,4 @@
-package com.campersmarket.control.bind;
+package net.campersmarket.control.bind;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
