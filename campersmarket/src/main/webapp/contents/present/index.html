@@ -66,7 +66,7 @@ function loadPrMap() {
 					var testSource = "testFlag" + i;
 					var ts = testSource.toString();
 					var x = -1;
-					var y = i+1;
+					var y = Math.floor(Math.random() * 2) + 1;;
 					
 					testFlag[i] = new google.maps.Marker({
 						position : new google.maps.LatLng(
@@ -77,11 +77,24 @@ function loadPrMap() {
 						icon : presentFlag,
 						attribution: {
 				      source: ts,
-				      //webUrl: 'https://developers.google.com/maps/' 샘플.
 				    },
 						title : ts
 					});
 					
+					/* function randomLatLng() {					
+						var x = -1;																	
+						var y = Math.floor(Math.random() * 2) + 1;  //1과 2중 무작위로 뽑아냄.
+						
+						var randomSign = Math.pow(x,y);          		// + , -사인을 랜덤으로 뽑아냄.
+						
+						var step1 = ((Math.random() * 9) + 1);  		//1에서 9까지 랜덤
+						var step2 = step1 * 0.0001;                 //0.0001에서 0.0009까지 랜덤
+						var step3 = step2 + 0.0008;                 //0.0009에서 0.001까지 랜덤
+						
+						var result = step3 * randomSign;            //0.0009에서 0.001까지 양수,음수 랜덤하게 나옴.
+						
+						return result;
+					} */
 				}
 				
 				//테스트 : 테스트 플래그 마커 클릭시 발생되는 이벤트
@@ -128,6 +141,7 @@ function loadPrMap() {
 	  	tempPos = usrMarker.getPosition();
 	  	cmtest("이동 시작 좌표 - " + tempPos);
 	  });
+	  
 		//유저 현재위치 마커 드래그가 끝날 때 발생되는 이벤트.
 	  google.maps.event.addListener(usrMarker, 'dragend', function() {
   		if(confirm('<campers market> \n 현 위치로 재설정 하시겠습니까?')){
@@ -140,6 +154,7 @@ function loadPrMap() {
   			cmtest("usrMarker 이동이 취소됨.");
   		}
 	  });
+		
 	}//loadHlMap() end
 </script>
 </head>
