@@ -10,6 +10,13 @@
 <link rel='stylesheet' href='../../css/cpsmarket.css'>
 <title>같이가요 화면</title>
 <style>
+
+#myModalLabel{
+  color: #4fbdc4;
+  
+}
+
+
 body {
 	height: 80vh;
 }
@@ -58,8 +65,8 @@ body {
   line-height:50px;
   width: 70%;
   height:50px;
-  border: 1px solid red;
 }
+
 #search-main{
  width: 100%;
  border: 2px solid #e8e8e8 ;
@@ -87,6 +94,16 @@ text-align: left;
  
 }
 
+#modal-form td{
+ width:30px;
+ 
+}
+
+.form-control{
+ width: 70%;
+}
+
+
 
 
 
@@ -95,14 +112,94 @@ text-align: left;
 <body>
 <div id='cp-body'>
 <div id='cp-title'>
-<span id='12'>카풀이용자 전체정보</span>
+<span style="font-size: 30px;">카풀화면</span>
 
 </div>
-<button type="button" id='cp-request' class="btn btn-primary"
-onclick="location.href='/campersmarket/contents/carpool/carpool_create.html' ">카풀등록신청</button>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="
+    margin: 0 0 7px 116px;
+">
+  카풀등록/신청
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">카풀 등록/신청</h3>
+      </div>
+      
+      <div class="modal-body">
+      <form class="form-horizontal">
+  <div class="form-group">
+    <label for="start" class="col-sm-2 control-label">출발</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="start" placeholder="출발지를 입력해주세요">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="end" class="col-sm-2 control-label">도착</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="end" placeholder="도착지를 입력해주세요">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="type" class="col-sm-2 control-label" >유형</label>
+    <div class="col-sm-10">
+    <select class="form-control" style="
+    margin-left: 23px;
+">
+  <option value="출퇴근">출퇴근</option>
+  <option value="통학">통학</option>
+  <option value="여행">여행</option>
+  <option value="드라이브">드라이브</option>
+  <option value="비즈니스">비즈니스</option>
+  <option value="기타카풀">기타카풀</option>
+</select>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="type" class="col-sm-2 control-label">자리</label>
+    <div class="col-sm-10">
+    <select class="form-control" style="
+    margin-left: 23px;
+">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+</select>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="type" class="col-sm-2 control-label">금액</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="amount" placeholder="원 단위로 금액을 입력해주세요">
+    </div>
+  </div>
+  
+</form>
+  
+        
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cm-default" data-dismiss="modal">취소</button>
+        <button id="signinBtn" type="button" class="btn btn-cm">등록</button>
+      </div>
+    </div>
+  </div>
+</div>
 
         
-        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:solid 2px #e8e8e8; border-collapse:collapse;">
+        <table width="100%" border="0" cellpadding="0" 
+        cellspacing="0" style="border:solid 2px #e8e8e8; border-collapse:collapse; border-bottom: 3px solid #4fbdc4;">
 		
 <colgroup>
   <col bgcolor="#f4f4f4">
@@ -148,7 +245,12 @@ onclick="location.href='/campersmarket/contents/carpool/carpool_create.html' ">�
           <select name="gugun" id="gugun"><option value=""> 2차지역 (구)</option></select>
           </td>
           <td width="35%">
-           <input type="image" id="image_search" onclick="search_local();"  src="img/btn_jobs_search.gif">
+          <button type="button" id="cp-request" class="btn btn-primary" 
+          onclick="location.href='/campersmarket/contents/carpool/carpool_create.html'"
+        	  style="
+        		    height: 35px;
+        		    width: 50pt;
+        		">검색</button>
           </td>
          </tr>
          

@@ -7,7 +7,6 @@
 <title>카풀 등록</title>
 <style>
 #header{
-  border: 1px solid red;
   color: #4fbdc4;
   border-bottom: 3px solid #4fbdc4;
 
@@ -23,7 +22,24 @@
 }
 
 #carpool{
- font-size: 10pt; !important
+ font-size: 12pt; !important
+}
+
+label {
+	color:#4fbdc4; !important
+}
+
+#create_form{
+ margin-top: 35px;
+}
+
+#account{
+  width: 15%;
+}
+
+select{
+ width:10%; !important
+ height: 45px; !important
 }
 </style>
 </head>
@@ -32,7 +48,7 @@
  <h1>카풀등록</h1>
 </div>
 
-<form>
+<form id='create_form'>
   <div class="form-group">
     <label for="exampleInputEmail1">출발 </label>
     <input type="text" class="form-control" placeholder="출발지를 정하세요">
@@ -56,7 +72,7 @@
   
   <div class="form-group">
     <label for="exampleInputPassword1">자리</label><br>
-    <select name="carpool">
+    <select name="carpool" id='carpool'>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -66,8 +82,8 @@
 </select>
   </div>
   
-  <div class="form-group">
-    <label for="exampleInputPassword1">금액  </label>
+  <div class="form-group" id='account'>
+    <label for="exampleInputPassword1">금액</label>
     <div class="form-group">
     <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
     <div class="input-group">
@@ -76,7 +92,7 @@
     </div>
   </div>
   </div>
-  <button type="submit" class="btn btn-default">등록</button>
+<button type="button" class="btn btn-info">등록</button>
 </form>
 </body>
 </html>
