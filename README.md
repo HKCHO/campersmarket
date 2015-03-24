@@ -12,7 +12,4 @@ gradle 프로젝트로 진행 중인 웹앱입니다.<br>
 <br>
 <h3>팀원</h3>
 <p> - 조현권 : (소환사) </p>
-<p> - 윤종익(3월 9일 시작) : (BRONZE IV 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
-<p> - 지용근 : (축 취업)</p>
 <p> - 김광철 : (초빙 개발자) javascript , jquery , ajax , java , css , nodejs 등</p>
-<p> - 강다현 : (축 취업)</p>
