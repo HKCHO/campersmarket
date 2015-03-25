@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MembersControl {
 	static Logger log = Logger.getLogger(MembersControl.class);
 
-	MembersService	membersService;
+	//MembersService	membersService;
 	ServletContext servletContext;
 	
 }
