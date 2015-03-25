@@ -21,13 +21,15 @@ body {
 	height: 80vh;
 }
 #cp-body {
- display:table;
- border: 1px solid blue; height: 773.984px; }
+  display:table;
+  border: 1px solid blue;
+  width:100%;
+  height: 773.984px; }
 #cp-location-box {
 	margin: 0 auto;
 	margin-top: 10px;
 	width: 100%;
-	height: 400px;
+	height: 800px;
 	border: 1px solid green;
 }
 #cp-destination-info {
@@ -60,11 +62,11 @@ body {
 }
 #cp-title{
 
-  
+  background-color: cadetblue;
   display:inline-block;
   line-height:50px;
-  width: 70%;
-  height:50px;
+  width: 100%;
+  height:61px;
 }
 
 #search-main{
@@ -103,6 +105,10 @@ text-align: left;
  width: 70%;
 }
 
+#create-cp{
+   border: 1px solid red;
+}
+
 
 
 
@@ -114,20 +120,23 @@ text-align: left;
 <div id='cp-title'>
 <span style="font-size: 30px;">카풀화면</span>
 
-</div>
     <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="
-    margin: 0 0 7px 116px;
+    margin: 6px 77px 0 0;
+    float: right;
 ">
   카풀등록/신청
 </button>
+
+
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" id="create_cp" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h3 class="modal-title" id="myModalLabel">카풀 등록/신청</h3>
       </div>
       
@@ -159,6 +168,21 @@ text-align: left;
   <option value="기타카풀">기타카풀</option>
 </select>
     </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="type" class="col-sm-2 control-label" ></label>
+    <div class="col-sm-10">
+    <select class="form-control" style="
+    margin-left: 23px;
+">
+  <option value="출퇴근">타세요</option>
+  <option value="통학">태워주세요</option>
+</select>
+    </div>
+    
+    
+    
   </div>
   
   <div class="form-group">
@@ -249,7 +273,7 @@ text-align: left;
           onclick="location.href='/campersmarket/contents/carpool/carpool_create.html'"
         	  style="
         		    height: 35px;
-        		    width: 50pt;
+        		    width: 108pt;
         		">검색</button>
           </td>
          </tr>
@@ -281,7 +305,11 @@ text-align: left;
 	
 	</tr>
 	
-	<tr>
+	<tr style='
+    width: 100%;
+    height: 115px;
+    border: 1px solid red;
+	'>
 	 <td>1</td>
 	 <td>1</td>
 	 <td>1</td>
@@ -292,10 +320,6 @@ text-align: left;
 	
 </table>
 	
-	</div>
-	<div id='cp-timetable'>
-	 <h2>여기에다가는 주변에 있는 카풀의 목적지와 착석 가능한 자리수가 출발시간순으로 정렬이 될꺼야<br>
-	 그런데 자리가 많이 남을 것 같은데 다른거 넣을 게 없을까?</h2>
 	</div>
 </div>
 </body>
