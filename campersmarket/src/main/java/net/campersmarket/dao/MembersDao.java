@@ -1,5 +1,9 @@
 package net.campersmarket.dao;
 
-public class MembersDao {
+import net.campersmarket.domain.Members;
+
+public interface MembersDao {
+
+	void insert(Members members);
 	
 }
