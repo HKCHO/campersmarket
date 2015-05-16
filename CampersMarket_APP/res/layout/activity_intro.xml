@@ -4,6 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    
+    <!-- 
+    	width와 height 값
+    		1) match_parent : 부모 레이아웃의 길이와 일치시킨다
+    		2) fill_parent : 부모 레이아웃의 길이와 일치시킨다.
+    				(예전 안드로이드 SDK에는 match_parent가 없고 fill_parent가 있었다.
+    				 혼란이 올 수 있는 단어로 판단되어 match_parent로 교체되었고, 예전 버전 안드로이드 앱 지원을 위해서 남아있다.
+    				 현재 APP을 만든다고 하면 match_parent를 사용하도록 하자)
+    		3) wrap_content : wrap(감싸다) content(내용), 해당 레이아웃의 내용물의 높이와 너비로 설정한다.
+    				(wrap_content의 경우, 자동적으로 높이와 너비를 설정하기 때문에 쉽게 사용 할 수 있지만
+    				 앱 안의 모든 레이아웃의 높이와 너비를 wrap_content로 설정하게 되면
+    				 서비스 할 때 액티비티 로딩속도가 느려질 수 있다.)
+     -->
+     
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
