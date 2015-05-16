@@ -18,6 +18,7 @@
         <activity android:name="IntroActivity">
             <intent-filter>
                 <!-- 해당 액티비티를 앱 실행시 최초로 실행되는 activity로 설정 -->
+                <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
