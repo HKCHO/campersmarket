@@ -7,12 +7,22 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
+    <!-- 사용할 액티비티들을 activity 태그 안에 설정한다. -->
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity android:name="IntroActivity"></activity>
+        
+        <!-- campersmarket - IntroActivity.class -->
+        <activity android:name="IntroActivity">
+            <intent-filter>
+                <!-- 해당 액티비티를 앱 실행시 최초로 실행되는 activity로 설정 -->
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="MainActivity"></activity>
     </application>
 
 </manifest>
